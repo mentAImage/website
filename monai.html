@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monai&trade; &mdash; mentAImage&trade;</title>
+  <meta name="description" content="Monai&trade; is an AI reflection and coping-skills companion. Not a therapist. Not a clinician. A structured presence for the space between check-ins, grounded in your PulseKey&trade; data." />
+  <link rel="stylesheet" href="/shared.css" />
+</head>
+<body>
+
+  <!-- Full disclaimer modal -->
+  <div class="modal-overlay" id="modal-disclaimer" role="dialog" aria-modal="true" aria-labelledby="modal-disclaimer-title">
+    <div class="modal-card modal-card--wide">
+      <button class="modal-close" data-close="modal-disclaimer" aria-label="Close">&times;</button>
+      <h2 id="modal-disclaimer-title">Full Disclaimer</h2>
+      <p class="modal-section-title">Not therapy or clinical care</p>
+      <p>mentAImage&trade; is a preventive mental wellness platform. PulseKey&trade; and Monai&trade; are not therapy, counselling, psychotherapy, or clinical mental health treatment. Nothing on this platform constitutes a medical or psychiatric diagnosis, clinical assessment, or treatment recommendation.</p>
+      <p class="modal-section-title">Not a crisis service</p>
+      <p>mentAImage&trade; and Monai&trade; are not crisis services. If you are experiencing a mental health crisis, thoughts of self-harm or suicide, or any emergency, do not rely on this platform. <strong>Call or text 9-8-8</strong> (Canada Suicide Crisis Helpline, available 24/7), call <strong>911</strong>, or go to the nearest emergency department.</p>
+      <p class="modal-section-title">About Monai</p>
+      <p>Monai&trade; is an artificial intelligence system. You are not speaking with a human therapist, psychologist, counsellor, or crisis responder. Monai&trade; does not diagnose, prescribe, treat, or replace professional care. Monai&trade; is designed to support reflection and coping-skills practice only.</p>
+      <p class="modal-section-title">Employer data policy</p>
+      <p>When PulseKey&trade; is deployed through an employer or organization, no individual employee check-in content is ever shared with the employer. Employers and HR administrators see only aggregated, de-identified group-level trend data. Individual mental health information is never used in employment decisions, performance reviews, or disciplinary processes. No individual employee data is shared with employers - ever.</p>
+      <p class="modal-section-title">Data and privacy</p>
+      <p>Your personal data is stored in Canada, encrypted at rest, and is never sold to third parties. You may request deletion of your data at any time. <a href="/privacy.html" style="color:var(--teal);">See our Privacy Policy.</a></p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__logo-link" aria-label="mentAImage home">
+        <img
+          src="https://mentaimage.com/wp-content/uploads/2025/02/cropped-mentAImage-logo_clear-bkg-1.png"
+          alt="mentAImage"
+          class="nav__logo"
+          height="36"
+        />
+      </a>
+      <div class="nav__links" role="menubar">
+        <a class="nav__link" href="/index.html" role="menuitem">Home</a>
+        <a class="nav__link" href="/pulsekey.html" role="menuitem">PulseKey&trade;</a>
+        <a class="nav__link active" href="/monai.html" role="menuitem">Monai&trade;</a>
+        <a class="nav__link" href="/about.html" role="menuitem">About</a>
+        <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener" role="menuitem">Stories</a>
+        <a class="nav__link" href="/contact.html" role="menuitem">Contact</a>
+        <a class="nav__link nav__link--lang" href="/fr/monai.html" aria-label="Passer en fran&ccedil;ais">FR</a>
+        <a class="btn btn-primary nav__cta" href="/contact.html">Request a Demo</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <a class="nav__link" href="/index.html">Home</a>
+    <a class="nav__link" href="/pulsekey.html">PulseKey&trade;</a>
+    <a class="nav__link active" href="/monai.html">Monai&trade;</a>
+    <a class="nav__link" href="/about.html">About</a>
+    <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener">Stories</a>
+    <a class="nav__link" href="/contact.html">Contact</a>
+    <a class="nav__link nav__link--lang" href="/fr/monai.html">FR</a>
+    <a class="btn btn-primary" href="/contact.html">Request a Demo</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="monai-hero" id="monai" aria-labelledby="monai-hero-heading">
+      <div class="container">
+        <div class="monai-hero__layout">
+          <div class="monai-hero__content">
+            <h1 id="monai-hero-heading"><span>Monai&trade;</span></h1>
+            <p class="hero__sub">An AI reflection and coping-skills companion. Not a therapist. Not a clinician. A structured presence for the space between check-ins.</p>
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/contact.html">Meet Monai&trade; in the app</a>
+            </div>
+            <p class="hero__disclaimer">Not therapy. Not diagnosis. Not a crisis service.</p>
+          </div>
+          <div class="monai-hero__character" aria-hidden="true">
+            <img src="/Monai shadow clean.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Monai does -->
+    <section aria-labelledby="monai-does-heading">
+      <div class="container">
+        <p class="section-label">What Monai&trade; does</p>
+        <h2 id="monai-does-heading">Reflection. Psychoeducation. Coping skills.</h2>
+        <div class="monai-cols">
+          <div class="monai-col">
+            <h3>Reflect</h3>
+            <p>Monai&trade; reads your PulseKey&trade; mental wellness trends and current check-in mental wellness signals to offer contextual reflections. It knows how you have been doing over time, not just today.</p>
+          </div>
+          <div class="monai-col">
+            <h3>Evidence-based resources</h3>
+            <p>Every suggestion Monai&trade; makes is grounded in peer-reviewed mental wellness and stress management research: breathing techniques, grounding exercises, cognitive reframing, and validated coping strategies. Monai&trade; does not draw from general internet content or commercial AI training data.</p>
+          </div>
+          <div class="monai-col">
+            <h3>Real-time support</h3>
+            <p>Monai&trade; is available between check-ins for on-the-go support. Feeling overwhelmed before a meeting? Monai&trade; can walk you through a validated 3-minute regulation exercise right then.</p>
+          </div>
+          <div class="monai-col">
+            <h3>Navigate</h3>
+            <p>When you need more than Monai&trade; can offer, Monai&trade; helps you find the right next step toward professional support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monai diagram -->
+    <section aria-label="How Monai works diagram">
+      <div class="container" style="text-align: center;">
+        <img src="/For Website- Monai (2).png" alt="Monai diagram showing inputs from PulseKey check-ins on the left, Monai companion in the center, and grounded conversations, practical support and progress tracking on the right" style="width: 100%; max-width: 800px; display: inline-block; border-radius: 12px;" />
+      </div>
+    </section>
+
+    <!-- What makes Monai different -->
+    <section class="monai-different" aria-labelledby="monai-diff-heading">
+      <div class="container">
+        <p class="section-label">What makes Monai&trade; different</p>
+        <h2 id="monai-diff-heading">Depth over breadth. Your data, not a script.</h2>
+        <div class="monai-different__grid">
+          <div class="monai-different__item">
+            <p>Monai&trade; is not a general-purpose conversational AI. It does not have opinions about the news, cannot help you write emails, and has not been trained on the entire internet. Behind Monai&trade; is a multimodal AI system that draws on your voice acoustics, written responses, and drawing signals together, not just your words. Monai&trade; knows one domain deeply: evidence-based mental wellness and stress management science. Every recommendation it makes traces back to a validated source.</p>
+          </div>
+          <div class="monai-different__item">
+            <p>Monai&trade; also has something most AI companions do not: your history. It can see your PulseKey&trade; mental wellness trends, notice when patterns are shifting, and offer support that is grounded in your actual data, not a generic script.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Monai is NOT -->
+    <section class="not-section" aria-labelledby="monai-not-heading">
+      <div class="container">
+        <h2 id="monai-not-heading">Clear about what Monai&trade; is not</h2>
+        <div class="not-grid" role="list">
+          <div class="not-item" role="listitem">
+            <p class="not-item__text">Not a therapist or psychologist</p>
+          </div>
+          <div class="not-item" role="listitem">
+            <p class="not-item__text">Not a crisis service or emergency responder</p>
+          </div>
+          <div class="not-item" role="listitem">
+            <p class="not-item__text">Not a medical or clinical tool</p>
+          </div>
+          <div class="not-item" role="listitem">
+            <p class="not-item__text">Not a substitute for professional care</p>
+          </div>
+        </div>
+        <div class="crisis-callout" role="alert">
+          <p>If you are experiencing a crisis, thoughts of self-harm, or an emergency, <strong>do not rely on Monai&trade;</strong>. Call <strong>9-8-8</strong> (Canada suicide crisis support), call <strong>911</strong>, or go to the nearest emergency department.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Between sessions -->
+    <section class="between-sessions" aria-labelledby="between-heading">
+      <div class="container">
+        <div class="between-sessions__inner">
+          <p class="section-label">The space between</p>
+          <h2 id="between-heading">For the moments between professional care</h2>
+          <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75; margin-top: 20px;">Monai&trade; is not meant to replace your therapist, doctor, or counsellor. It is for the moments in between: when you want to reflect, practice a skill, or have a structured space to think.</p>
+          <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">If you are already working with a professional, Monai&trade; can help you prepare for appointments, practice what you are learning, and track how you are doing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- App store -->
+    <section class="appstore appstore--light" aria-labelledby="monai-appstore-heading">
+      <div class="container">
+        <p class="section-label">Download</p>
+        <h2 id="monai-appstore-heading">Meet Monai&trade; in the app</h2>
+        <div class="store-badges">
+          <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="Download mentAImage on the App Store">
+            <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="store-badge__text">
+              <span class="store-badge__line1">Download on the</span>
+              <span class="store-badge__line2">App Store</span>
+            </span>
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Get mentAImage on Google Play">
+            <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+            <span class="store-badge__text">
+              <span class="store-badge__line1">Get it on</span>
+              <span class="store-badge__line2">Google Play</span>
+            </span>
+          </a>
+        </div>
+        <p class="appstore__note">Download free on iOS and Android.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img
+            src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png"
+            alt="mentAImage"
+            class="footer__logo"
+            height="34"
+          />
+          <p class="footer__tagline">Preventive mental wellness for individuals and organizations. Not therapy. Not diagnosis. A smarter kind of support.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Product</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/pulsekey.html">PulseKey&trade;</a></li>
+            <li><a class="footer__link-btn" href="/monai.html">Monai&trade;</a></li>
+            <li><a class="footer__link-btn" href="/index.html#home-for-orgs">For Organizations</a></li>
+            <li><a class="footer__link-btn" href="/contact.html">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/about.html">About</a></li>
+            <li><a class="footer__link-btn" href="/contact.html">Contact</a></li>
+            <li><a class="footer__link-btn" href="/contact.html">Request a Demo</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/privacy.html">Privacy Policy</a></li>
+            <li><a class="footer__link-btn" href="/terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Language</p>
+          <ul class="footer__links">
+            <li><a href="/monai.html" aria-current="true">English</a></li>
+            <li><a class="footer__link-btn" href="/fr/monai.html">Fran&ccedil;ais</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. All rights reserved.</p>
+        <p class="footer__disclaimer-line">mentAImage&trade; is a mental wellness platform, not therapy or crisis support. <button class="disclaimer-trigger">See full disclaimer.</button></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/shared.js"></script>
+</body>
+</html>

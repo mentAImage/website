@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monai&trade; &mdash; mentAImage&trade;</title>
+  <meta name="description" content="Monai&trade; est un compagnon IA de r&eacute;flexion et de strat&eacute;gies d&rsquo;adaptation. Pas un th&eacute;rapeute. Une pr&eacute;sence structur&eacute;e pour l&rsquo;espace entre les bilans, ancr&eacute;e dans vos donn&eacute;es PulseKey&trade;." />
+  <link rel="stylesheet" href="/shared.css" />
+</head>
+<body>
+
+  <!-- Full disclaimer modal -->
+  <div class="modal-overlay" id="modal-disclaimer" role="dialog" aria-modal="true" aria-labelledby="modal-disclaimer-title">
+    <div class="modal-card modal-card--wide">
+      <button class="modal-close" data-close="modal-disclaimer" aria-label="Fermer">&times;</button>
+      <h2 id="modal-disclaimer-title">Clause de non-responsabilit&eacute; compl&egrave;te</h2>
+      <p class="modal-section-title">Pas de th&eacute;rapie ni de soins cliniques</p>
+      <p>mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental pr&eacute;ventif. PulseKey&trade; et Monai&trade; ne sont pas de la th&eacute;rapie, de la psychoth&eacute;rapie ou un traitement clinique de sant&eacute; mentale.</p>
+      <p class="modal-section-title">Pas un service de crise</p>
+      <p>Si vous vivez une crise de sant&eacute; mentale, des pens&eacute;es d&rsquo;automutilation ou toute urgence, ne comptez pas sur cette plateforme. <strong>Appelez ou textez le 9-8-8</strong> (24/7), appelez le <strong>911</strong>, ou rendez-vous aux urgences les plus proches.</p>
+      <p class="modal-section-title">Donn&eacute;es et confidentialit&eacute;</p>
+      <p>Vos donn&eacute;es personnelles sont stock&eacute;es au Canada, chiffr&eacute;es au repos, et ne sont jamais vendues. <a href="/privacy.html" style="color:var(--teal);">Voir notre Politique de confidentialit&eacute;.</a></p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a href="/fr/" class="nav__logo-link" aria-label="mentAImage accueil">
+        <img
+          src="https://mentaimage.com/wp-content/uploads/2025/02/cropped-mentAImage-logo_clear-bkg-1.png"
+          alt="mentAImage"
+          class="nav__logo"
+          height="36"
+        />
+      </a>
+      <div class="nav__links" role="menubar">
+        <a class="nav__link" href="/fr/" role="menuitem">Accueil</a>
+        <a class="nav__link" href="/fr/pulsekey.html" role="menuitem">PulseKey&trade;</a>
+        <a class="nav__link active" href="/fr/monai.html" role="menuitem">Monai&trade;</a>
+        <a class="nav__link" href="/fr/about.html" role="menuitem">&Agrave; propos</a>
+        <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener" role="menuitem">Billets</a>
+        <a class="nav__link" href="/fr/contact.html" role="menuitem">Contact</a>
+        <a class="nav__link nav__link--lang" href="/monai.html" aria-label="Switch to English">EN</a>
+        <a class="btn btn-primary nav__cta" href="/fr/contact.html">Demander une d&eacute;mo</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <a class="nav__link" href="/fr/">Accueil</a>
+    <a class="nav__link" href="/fr/pulsekey.html">PulseKey&trade;</a>
+    <a class="nav__link active" href="/fr/monai.html">Monai&trade;</a>
+    <a class="nav__link" href="/fr/about.html">&Agrave; propos</a>
+    <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener">Billets</a>
+    <a class="nav__link" href="/fr/contact.html">Contact</a>
+    <a class="nav__link nav__link--lang" href="/monai.html">EN</a>
+    <a class="btn btn-primary" href="/fr/contact.html">Demander une d&eacute;mo</a>
+  </div>
+
+  <main id="main-content">
+
+    <section class="monai-hero" id="monai-fr" aria-labelledby="monai-fr-heading">
+      <div class="container">
+        <div class="monai-hero__layout">
+          <div class="monai-hero__content">
+            <h1 id="monai-fr-heading"><span>Monai&trade;</span></h1>
+            <p class="hero__sub">Un compagnon IA de r&eacute;flexion et de strat&eacute;gies d&rsquo;adaptation. Pas un th&eacute;rapeute. Pas un clinicien. Une pr&eacute;sence structur&eacute;e pour l&rsquo;espace entre les bilans.</p>
+            <div class="btn-group">
+              <a class="btn btn-primary" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener">Rencontrer Monai&trade; dans l&rsquo;application</a>
+            </div>
+            <p class="hero__disclaimer">Pas de th&eacute;rapie. Pas de diagnostic. Pas un service de crise.</p>
+          </div>
+          <div class="monai-hero__character" aria-hidden="true">
+            <img src="/Monai shadow clean.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="section-label">Ce que fait Monai&trade;</p>
+        <h2>R&eacute;flexion. Psycho&eacute;ducation. Strat&eacute;gies d&rsquo;adaptation.</h2>
+        <div class="monai-cols">
+          <div class="monai-col">
+            <h3>R&eacute;fl&eacute;chir</h3>
+            <p>Monai&trade; lit vos tendances de mieux-&ecirc;tre PulseKey&trade; et les signaux de votre bilan actuel pour offrir des r&eacute;flexions contextuelles. Il sait comment vous vous portez dans le temps, pas seulement aujourd&rsquo;hui.</p>
+          </div>
+          <div class="monai-col">
+            <h3>Ressources fond&eacute;es sur des donn&eacute;es probantes</h3>
+            <p>Chaque suggestion de Monai&trade; est ancr&eacute;e dans des recherches &eacute;valu&eacute;es par des pairs: techniques de respiration, exercices d&rsquo;ancrage, recadrage cognitif et strat&eacute;gies d&rsquo;adaptation valid&eacute;es.</p>
+          </div>
+          <div class="monai-col">
+            <h3>Soutien en temps r&eacute;el</h3>
+            <p>Monai&trade; est disponible entre les bilans pour un soutien sur le vif. Vous sentez-vous d&eacute;pass&eacute; avant une r&eacute;union? Monai&trade; peut vous guider dans un exercice de r&eacute;gulation valid&eacute; de 3 minutes.</p>
+          </div>
+          <div class="monai-col">
+            <h3>S&rsquo;orienter</h3>
+            <p>Lorsque vous avez besoin de plus que ce que Monai&trade; peut offrir, il vous aide &agrave; trouver la prochaine &eacute;tape vers un soutien professionnel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Comment fonctionne Monai">
+      <div class="container" style="text-align: center;">
+        <img src="/For Website- Monai (2).png" alt="Sch&eacute;ma Monai montrant les entr&eacute;es PulseKey &agrave; gauche, le compagnon Monai au centre, et le soutien offert &agrave; droite" style="width: 100%; max-width: 800px; display: inline-block; border-radius: 12px;" />
+        <p style="font-size: 0.85rem; color: var(--grey-text); margin-top: 10px; max-width: 800px; display: inline-block; text-align: left;">Monai&trade; int&egrave;gre vos bilans PulseKey&trade;, votre progression dans le temps et vos entr&eacute;es de session pour offrir un soutien personnalis&eacute; fond&eacute; sur des donn&eacute;es probantes.</p>
+      </div>
+    </section>
+
+    <section class="monai-different">
+      <div class="container">
+        <p class="section-label">Ce qui distingue Monai&trade;</p>
+        <h2>La profondeur plut&ocirc;t que la largeur. Vos donn&eacute;es, pas un script.</h2>
+        <div class="monai-different__grid">
+          <div class="monai-different__item">
+            <p>Monai&trade; n&rsquo;est pas une IA conversationnelle g&eacute;n&eacute;rale. Derri&egrave;re Monai&trade; se trouve un syst&egrave;me IA multimodal qui s&rsquo;appuie sur vos acoustiques vocales, vos r&eacute;ponses &eacute;crites et vos signaux de dessin ensemble. Monai&trade; conna&icirc;t un domaine en profondeur: la science du mieux-&ecirc;tre mental et de la gestion du stress fond&eacute;e sur des donn&eacute;es probantes.</p>
+          </div>
+          <div class="monai-different__item">
+            <p>Monai&trade; a quelque chose que la plupart des compagnons IA n&rsquo;ont pas: votre historique. Il peut voir vos tendances de mieux-&ecirc;tre PulseKey&trade;, remarquer quand les sch&eacute;mas &eacute;voluent, et offrir un soutien ancr&eacute; dans vos donn&eacute;es r&eacute;elles, pas un script g&eacute;n&eacute;rique.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="not-section">
+      <div class="container">
+        <h2>Ce que Monai&trade; n&rsquo;est pas</h2>
+        <div class="not-grid" role="list">
+          <div class="not-item" role="listitem"><p class="not-item__text">Pas un th&eacute;rapeute ou psychologue</p></div>
+          <div class="not-item" role="listitem"><p class="not-item__text">Pas un service de crise ou d&rsquo;urgence</p></div>
+          <div class="not-item" role="listitem"><p class="not-item__text">Pas un outil m&eacute;dical ou clinique</p></div>
+          <div class="not-item" role="listitem"><p class="not-item__text">Pas un substitut aux soins professionnels</p></div>
+        </div>
+        <div class="crisis-callout" role="alert">
+          <p>Si vous vivez une crise, des pens&eacute;es d&rsquo;automutilation ou une urgence, <strong>ne comptez pas sur Monai&trade;</strong>. Appelez le <strong>9-8-8</strong> (soutien en cas de crise suicidaire, Canada, 24/7), le <strong>911</strong>, ou rendez-vous aux urgences les plus proches.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="between-sessions">
+      <div class="container">
+        <div class="between-sessions__inner">
+          <p class="section-label">L&rsquo;espace entre</p>
+          <h2>Pour les moments entre les soins professionnels</h2>
+          <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75; margin-top: 20px;">Monai&trade; n&rsquo;est pas destin&eacute; &agrave; remplacer votre th&eacute;rapeute, m&eacute;decin ou conseiller. C&rsquo;est pour les moments en entre-deux: quand vous voulez r&eacute;fl&eacute;chir, pratiquer une comp&eacute;tence, ou avoir un espace structur&eacute; pour penser.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="appstore appstore--light">
+      <div class="container">
+        <p class="section-label">T&eacute;l&eacute;charger</p>
+        <h2>Rencontrer Monai&trade; dans l&rsquo;application</h2>
+        <div class="store-badges">
+          <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="T&eacute;l&eacute;charger mentAImage sur l&rsquo;App Store">
+            <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="store-badge__text"><span class="store-badge__line1">T&eacute;l&eacute;charger sur</span><span class="store-badge__line2">App Store</span></span>
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Obtenir mentAImage sur Google Play">
+            <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+            <span class="store-badge__text"><span class="store-badge__line1">Obtenir sur</span><span class="store-badge__line2">Google Play</span></span>
+          </a>
+        </div>
+        <p class="appstore__note">T&eacute;l&eacute;chargez gratuitement sur iOS et Android.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png" alt="mentAImage" class="footer__logo" height="34" />
+          <p class="footer__tagline">Mieux-&ecirc;tre mental pr&eacute;ventif pour les individus et les organisations. Pas de th&eacute;rapie. Pas de diagnostic. Un soutien plus intelligent.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Produit</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/pulsekey.html">PulseKey&trade;</a></li>
+            <li><a class="footer__link-btn" href="/fr/monai.html">Monai&trade;</a></li>
+            <li><a class="footer__link-btn" href="/fr/#home-fr-orgs">Pour les organisations</a></li>
+            <li><a class="footer__link-btn" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank">T&eacute;l&eacute;charger</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Compagnie</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/about.html">&Agrave; propos</a></li>
+            <li><a class="footer__link-btn" href="/fr/contact.html">Contact</a></li>
+            <li><a class="footer__link-btn" href="/fr/contact.html">Demander une d&eacute;mo</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">L&eacute;gal</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/privacy.html">Politique de confidentialit&eacute;</a></li>
+            <li><a class="footer__link-btn" href="/fr/terms.html">Conditions d&rsquo;utilisation</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Langue</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/monai.html">English</a></li>
+            <li><a href="/fr/monai.html" aria-current="true">Fran&ccedil;ais</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. Tous droits r&eacute;serv&eacute;s.</p>
+        <p class="footer__disclaimer-line">mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental, pas de th&eacute;rapie. <button class="disclaimer-trigger">Voir la clause compl&egrave;te.</button></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/shared.js"></script>
+</body>
+</html>

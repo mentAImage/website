@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found &mdash; mentAImage&trade;</title>
+  <meta name="description" content="The page you were looking for could not be found." />
+  <link rel="stylesheet" href="/shared.css" />
+  <style>
+    .error-page {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 48px) 24px 96px;
+      background: var(--white);
+      text-align: center;
+    }
+    .error-page__inner {
+      max-width: 520px;
+    }
+    .error-page__code {
+      font-size: clamp(4rem, 12vw, 8rem);
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .error-page h1 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--navy-mid);
+      margin-bottom: 16px;
+    }
+    .error-page p {
+      color: var(--grey-text);
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full disclaimer modal -->
+  <div class="modal-overlay" id="modal-disclaimer" role="dialog" aria-modal="true" aria-labelledby="modal-disclaimer-title">
+    <div class="modal-card modal-card--wide">
+      <button class="modal-close" data-close="modal-disclaimer" aria-label="Close">&times;</button>
+      <h2 id="modal-disclaimer-title">Full Disclaimer</h2>
+      <p class="modal-section-title">Not therapy or clinical care</p>
+      <p>mentAImage&trade; is a preventive mental wellness platform. Nothing on this platform constitutes a medical or psychiatric diagnosis or treatment recommendation.</p>
+      <p class="modal-section-title">Not a crisis service</p>
+      <p>If you are experiencing a mental health emergency, <strong>call or text 9-8-8</strong>, call <strong>911</strong>, or go to the nearest emergency department.</p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__logo-link" aria-label="mentAImage home">
+        <img
+          src="https://mentaimage.com/wp-content/uploads/2025/02/cropped-mentAImage-logo_clear-bkg-1.png"
+          alt="mentAImage"
+          class="nav__logo"
+          height="36"
+        />
+      </a>
+      <div class="nav__links" role="menubar">
+        <a class="nav__link" href="/index.html" role="menuitem">Home</a>
+        <a class="nav__link" href="/pulsekey.html" role="menuitem">PulseKey&trade;</a>
+        <a class="nav__link" href="/monai.html" role="menuitem">Monai&trade;</a>
+        <a class="nav__link" href="/about.html" role="menuitem">About</a>
+        <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener" role="menuitem">Stories</a>
+        <a class="nav__link" href="/contact.html" role="menuitem">Contact</a>
+        <a class="nav__link nav__link--lang" href="/fr/" aria-label="Passer en fran&ccedil;ais">FR</a>
+        <a class="btn btn-primary nav__cta" href="/contact.html">Request a Demo</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <a class="nav__link" href="/index.html">Home</a>
+    <a class="nav__link" href="/pulsekey.html">PulseKey&trade;</a>
+    <a class="nav__link" href="/monai.html">Monai&trade;</a>
+    <a class="nav__link" href="/about.html">About</a>
+    <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener">Stories</a>
+    <a class="nav__link" href="/contact.html">Contact</a>
+    <a class="nav__link nav__link--lang" href="/fr/">FR</a>
+    <a class="btn btn-primary" href="/contact.html">Request a Demo</a>
+  </div>
+
+  <main id="main-content">
+    <div class="error-page">
+      <div class="error-page__inner">
+        <div class="error-page__code">404</div>
+        <h1>Page not found</h1>
+        <p>The page you were looking for does not exist or has been moved. Let&rsquo;s get you back on track.</p>
+        <div class="btn-group" style="justify-content: center;">
+          <a class="btn btn-primary" href="/index.html">Go to Home</a>
+          <a class="btn btn-outline-dark" href="/contact.html">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img
+            src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png"
+            alt="mentAImage"
+            class="footer__logo"
+            height="34"
+          />
+          <p class="footer__tagline">Preventive mental wellness for individuals and organizations. Not therapy. Not diagnosis. A smarter kind of support.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Product</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/pulsekey.html">PulseKey&trade;</a></li>
+            <li><a class="footer__link-btn" href="/monai.html">Monai&trade;</a></li>
+            <li><a class="footer__link-btn" href="/index.html#home-for-orgs">For Organizations</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/about.html">About</a></li>
+            <li><a class="footer__link-btn" href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/privacy.html">Privacy Policy</a></li>
+            <li><a class="footer__link-btn" href="/terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Language</p>
+          <ul class="footer__links">
+            <li><a href="/index.html">English</a></li>
+            <li><a class="footer__link-btn" href="/fr/">Fran&ccedil;ais</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. All rights reserved.</p>
+        <p class="footer__disclaimer-line">mentAImage&trade; is a mental wellness platform, not therapy or crisis support. <button class="disclaimer-trigger">See full disclaimer.</button></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/shared.js"></script>
+</body>
+</html>

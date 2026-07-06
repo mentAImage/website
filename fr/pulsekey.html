@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseKey&trade; &mdash; mentAImage&trade;</title>
+  <meta name="description" content="PulseKey&trade; est un bilan multimodal hebdomadaire de 3 minutes combinant voix, texte et dessin. L&rsquo;analyse IA b&acirc;tit un portrait personnalis&eacute; de votre mieux-&ecirc;tre mental." />
+  <link rel="stylesheet" href="/shared.css" />
+</head>
+<body>
+
+  <!-- Full disclaimer modal -->
+  <div class="modal-overlay" id="modal-disclaimer" role="dialog" aria-modal="true" aria-labelledby="modal-disclaimer-title">
+    <div class="modal-card modal-card--wide">
+      <button class="modal-close" data-close="modal-disclaimer" aria-label="Fermer">&times;</button>
+      <h2 id="modal-disclaimer-title">Clause de non-responsabilit&eacute; compl&egrave;te</h2>
+      <p class="modal-section-title">Pas de th&eacute;rapie ni de soins cliniques</p>
+      <p>mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental pr&eacute;ventif. PulseKey&trade; et Monai&trade; ne sont pas de la th&eacute;rapie, de la psychoth&eacute;rapie ou un traitement clinique de sant&eacute; mentale.</p>
+      <p class="modal-section-title">Pas un service de crise</p>
+      <p>Si vous vivez une crise de sant&eacute; mentale, des pens&eacute;es d&rsquo;automutilation ou toute urgence, ne comptez pas sur cette plateforme. <strong>Appelez ou textez le 9-8-8</strong> (24/7), appelez le <strong>911</strong>, ou rendez-vous aux urgences les plus proches.</p>
+      <p class="modal-section-title">Donn&eacute;es et confidentialit&eacute;</p>
+      <p>Vos donn&eacute;es personnelles sont stock&eacute;es au Canada, chiffr&eacute;es au repos, et ne sont jamais vendues. <a href="/privacy.html" style="color:var(--teal);">Voir notre Politique de confidentialit&eacute;.</a></p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a href="/fr/" class="nav__logo-link" aria-label="mentAImage accueil">
+        <img
+          src="https://mentaimage.com/wp-content/uploads/2025/02/cropped-mentAImage-logo_clear-bkg-1.png"
+          alt="mentAImage"
+          class="nav__logo"
+          height="36"
+        />
+      </a>
+      <div class="nav__links" role="menubar">
+        <a class="nav__link" href="/fr/" role="menuitem">Accueil</a>
+        <a class="nav__link active" href="/fr/pulsekey.html" role="menuitem">PulseKey&trade;</a>
+        <a class="nav__link" href="/fr/monai.html" role="menuitem">Monai&trade;</a>
+        <a class="nav__link" href="/fr/about.html" role="menuitem">&Agrave; propos</a>
+        <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener" role="menuitem">Billets</a>
+        <a class="nav__link" href="/fr/contact.html" role="menuitem">Contact</a>
+        <a class="nav__link nav__link--lang" href="/pulsekey.html" aria-label="Switch to English">EN</a>
+        <a class="btn btn-primary nav__cta" href="/fr/contact.html">Demander une d&eacute;mo</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <a class="nav__link" href="/fr/">Accueil</a>
+    <a class="nav__link active" href="/fr/pulsekey.html">PulseKey&trade;</a>
+    <a class="nav__link" href="/fr/monai.html">Monai&trade;</a>
+    <a class="nav__link" href="/fr/about.html">&Agrave; propos</a>
+    <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener">Billets</a>
+    <a class="nav__link" href="/fr/contact.html">Contact</a>
+    <a class="nav__link nav__link--lang" href="/pulsekey.html">EN</a>
+    <a class="btn btn-primary" href="/fr/contact.html">Demander une d&eacute;mo</a>
+  </div>
+
+  <main id="main-content">
+
+    <section class="pk-hero" id="pulsekey-fr" aria-labelledby="pk-fr-hero-heading">
+      <div class="container">
+        <div class="pk-hero__layout">
+          <div class="pk-hero__content">
+            <h1 id="pk-fr-hero-heading">PulseKey&trade;</h1>
+            <p class="hero__sub">Un bilan structur&eacute; de mieux-&ecirc;tre mental qui vous aide &agrave; b&acirc;tir de meilleures habitudes de gestion du stress au fil du temps, par trois canaux, pas seulement un.</p>
+            <div class="btn-group">
+              <a class="btn btn-primary" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener">T&eacute;l&eacute;charger PulseKey&trade;</a>
+              <a class="btn btn-outline" href="#pk-fr-features">Voir comment &ccedil;a fonctionne</a>
+            </div>
+            <p class="hero__disclaimer">Pas de th&eacute;rapie. Pas de diagnostic. Pas de conseil m&eacute;dical.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="section-label">&Agrave; propos de PulseKey&trade;</p>
+        <h2>Une fen&ecirc;tre hebdomadaire de 3 minutes sur votre mieux-&ecirc;tre</h2>
+        <div style="max-width: 680px; margin-top: 20px;">
+          <p style="font-size:1.05rem; color: var(--grey-text); line-height: 1.75;">PulseKey&trade; est un bilan multimodal hebdomadaire de 3 minutes combinant voix, texte structur&eacute; et libre, et dessin optionnel. L&rsquo;analyse IA &agrave; travers les trois canaux d&eacute;veloppe un portrait personnalis&eacute; de votre mieux-&ecirc;tre mental.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="pk-fr-features">
+      <div class="container">
+        <p class="section-label">Fonctionnalit&eacute;s</p>
+        <h2>Trois modalit&eacute;s. <span class="underline-gradient">Un portrait complet.</span></h2>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2"/><path d="M14 20 C14 17 17 14 20 14 C23 14 26 17 26 20 C26 23 23 26 20 26 C20 26 20 28 20 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="32" r="1.5" fill="currentColor"/></svg>
+            <h3>Voix</h3>
+            <p>Prononcez une courte phrase. L&rsquo;analyse IA de vos acoustiques vocales capte les sch&eacute;mas de hauteur, rythme et &eacute;nergie qui refl&egrave;tent votre &eacute;tat mental d&rsquo;une fa&ccedil;on que les mots seuls ne peuvent pas.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="6" y="10" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2"/><line x1="11" y1="17" x2="29" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="22" x2="24" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <h3>Texte</h3>
+            <p>Une question structur&eacute;e ancre chaque bilan, suivie d&rsquo;un espace libre pour &eacute;crire ce qui vous pr&eacute;occupe. Les deux sont analys&eacute;s pour enrichir le portrait.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 28 C16 22 20 24 24 18 C26 15 28 16 30 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Dessin et &eacute;criture manuscrite</h3>
+            <p>Un canevas optionnel capte le dessin et l&rsquo;&eacute;criture comme expression non verbale. Cette modalit&eacute; capte des signaux que les outils verbaux ratent enti&egrave;rement.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><polyline points="4,30 10,20 16,24 22,14 28,20 34,12 38,16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="14" r="3" fill="currentColor"/></svg>
+            <h3>Tendances personnelles au fil du temps</h3>
+            <p>Trois minutes par semaine b&acirc;tissent une base personnelle. PulseKey&trade; suit l&rsquo;&eacute;volution de vos signaux de mieux-&ecirc;tre, pas par rapport &agrave; une norme de population, mais par rapport &agrave; vos propres sch&eacute;mas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-multimodal">
+      <div class="container">
+        <div class="why-multimodal__inner">
+          <p class="section-label">Pourquoi multimodal?</p>
+          <h2>Un seul canal ne suffit pas</h2>
+          <p>La plupart des outils de mieux-&ecirc;tre reposent sur une chose: ce que vous dites. PulseKey&trade; utilise trois canaux. Les acoustiques vocales, la r&eacute;flexion &eacute;crite et l&rsquo;expression visuelle ensemble produisent un signal plus riche et plus pr&eacute;cis qu&rsquo;une seule modalit&eacute;. Cela est particuli&egrave;rement important pour les personnes neurodiverses, dont beaucoup expriment le stress non verbalement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="for-orgs" id="pk-fr-orgs">
+      <div class="container">
+        <p class="section-label" style="color: var(--teal);">Pour les organisations</p>
+        <h2>Con&ccedil;u pour les milieux de travail qui prennent le mieux-&ecirc;tre au s&eacute;rieux</h2>
+        <div style="margin-top: 32px; margin-bottom: 16px;">
+          <img src="/For website PulseKey.png" alt="Sch&eacute;ma PulseKey montrant le flux individuel &agrave; gauche, le bouclier de confidentialit&eacute; au centre et le tableau de bord d&rsquo;&eacute;quipe agr&eacute;g&eacute; &agrave; droite" style="width: 100%; max-width: 960px; display: block; margin: 0 auto; border-radius: 12px;" />
+          <p style="font-size: 0.85rem; color: var(--grey-text); margin-top: 10px;">De gauche &agrave; droite&nbsp;: bilan individuel &rarr; confidentialit&eacute; par conception &rarr; tendances agr&eacute;g&eacute;es pour l&rsquo;organisation. Aucune donn&eacute;e individuelle n&rsquo;est partag&eacute;e.</p>
+        </div>
+        <div style="max-width: 680px;">
+          <p>Lorsque PulseKey&trade; est d&eacute;ploy&eacute; par un employeur, les dirigeants voient des tendances de mieux-&ecirc;tre mental de groupe agr&eacute;g&eacute;es et d&eacute;-identifi&eacute;es. Jamais de bilans individuels. PulseKey&trade; n&rsquo;est pas un outil de surveillance.</p>
+          <ul style="margin: 24px 0 32px;">
+            <li>Tendances agr&eacute;g&eacute;es, pas de surveillance individuelle</li>
+            <li>Tailles de groupe minimales appliqu&eacute;es avant affichage des donn&eacute;es</li>
+            <li>Donn&eacute;es individuelles jamais utilis&eacute;es pour l&rsquo;&eacute;valuation de performance</li>
+          </ul>
+          <a class="btn btn-outline-teal" href="/fr/contact.html">Demander un projet pilote</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="section-label">Protection des donn&eacute;es</p>
+        <h2>Vos donn&eacute;es, prot&eacute;g&eacute;es</h2>
+        <div class="privacy-grid">
+          <div class="privacy-item"><p class="privacy-item__text">Donn&eacute;es stock&eacute;es au Canada</p></div>
+          <div class="privacy-item"><p class="privacy-item__text">Chiffrement au repos avec AES-256-GCM</p></div>
+          <div class="privacy-item"><p class="privacy-item__text">Donn&eacute;es individuelles jamais partag&eacute;es avec les employeurs sans consentement &eacute;clair&eacute;</p></div>
+          <div class="privacy-item"><p class="privacy-item__text">Vous pouvez tout supprimer, en tout temps</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="appstore">
+      <div class="container">
+        <p class="section-label">T&eacute;l&eacute;charger</p>
+        <h2>T&eacute;l&eacute;chargez gratuitement sur iOS et Android</h2>
+        <div class="store-badges">
+          <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="T&eacute;l&eacute;charger mentAImage sur l&rsquo;App Store">
+            <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="store-badge__text"><span class="store-badge__line1">T&eacute;l&eacute;charger sur</span><span class="store-badge__line2">App Store</span></span>
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Obtenir mentAImage sur Google Play">
+            <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+            <span class="store-badge__text"><span class="store-badge__line1">Obtenir sur</span><span class="store-badge__line2">Google Play</span></span>
+          </a>
+        </div>
+        <p class="appstore__note">T&eacute;l&eacute;chargez gratuitement sur iOS et Android.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png" alt="mentAImage" class="footer__logo" height="34" />
+          <p class="footer__tagline">Mieux-&ecirc;tre mental pr&eacute;ventif pour les individus et les organisations. Pas de th&eacute;rapie. Pas de diagnostic. Un soutien plus intelligent.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Produit</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/pulsekey.html">PulseKey&trade;</a></li>
+            <li><a class="footer__link-btn" href="/fr/monai.html">Monai&trade;</a></li>
+            <li><a class="footer__link-btn" href="/fr/#home-fr-orgs">Pour les organisations</a></li>
+            <li><a class="footer__link-btn" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank">T&eacute;l&eacute;charger</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Compagnie</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/about.html">&Agrave; propos</a></li>
+            <li><a class="footer__link-btn" href="/fr/contact.html">Contact</a></li>
+            <li><a class="footer__link-btn" href="/fr/contact.html">Demander une d&eacute;mo</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">L&eacute;gal</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/privacy.html">Politique de confidentialit&eacute;</a></li>
+            <li><a class="footer__link-btn" href="/fr/terms.html">Conditions d&rsquo;utilisation</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Langue</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/pulsekey.html">English</a></li>
+            <li><a href="/fr/pulsekey.html" aria-current="true">Fran&ccedil;ais</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. Tous droits r&eacute;serv&eacute;s.</p>
+        <p class="footer__disclaimer-line">mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental, pas de th&eacute;rapie. <button class="disclaimer-trigger">Voir la clause compl&egrave;te.</button></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &mdash; mentAImage&trade;</title>
+  <meta name="description" content="Communiquez avec mentAImage&trade;. Que vous soyez un individu, un clinicien, un employeur ou un chercheur, nous serions ravis de vous entendre." />
+  <link rel="stylesheet" href="/shared.css" />
+</head>
+<body>
+
+  <!-- Full disclaimer modal -->
+  <div class="modal-overlay" id="modal-disclaimer" role="dialog" aria-modal="true" aria-labelledby="modal-disclaimer-title">
+    <div class="modal-card modal-card--wide">
+      <button class="modal-close" data-close="modal-disclaimer" aria-label="Fermer">&times;</button>
+      <h2 id="modal-disclaimer-title">Clause de non-responsabilit&eacute; compl&egrave;te</h2>
+      <p class="modal-section-title">Pas de th&eacute;rapie ni de soins cliniques</p>
+      <p>mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental pr&eacute;ventif. PulseKey&trade; et Monai&trade; ne sont pas de la th&eacute;rapie, de la psychoth&eacute;rapie ou un traitement clinique de sant&eacute; mentale.</p>
+      <p class="modal-section-title">Pas un service de crise</p>
+      <p>Si vous vivez une crise de sant&eacute; mentale, des pens&eacute;es d&rsquo;automutilation ou toute urgence, ne comptez pas sur cette plateforme. <strong>Appelez ou textez le 9-8-8</strong> (24/7), appelez le <strong>911</strong>, ou rendez-vous aux urgences les plus proches.</p>
+      <p class="modal-section-title">Donn&eacute;es et confidentialit&eacute;</p>
+      <p>Vos donn&eacute;es personnelles sont stock&eacute;es au Canada, chiffr&eacute;es au repos, et ne sont jamais vendues. <a href="/privacy.html" style="color:var(--teal);">Voir notre Politique de confidentialit&eacute;.</a></p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a href="/fr/" class="nav__logo-link" aria-label="mentAImage accueil">
+        <img
+          src="https://mentaimage.com/wp-content/uploads/2025/02/cropped-mentAImage-logo_clear-bkg-1.png"
+          alt="mentAImage"
+          class="nav__logo"
+          height="36"
+        />
+      </a>
+      <div class="nav__links" role="menubar">
+        <a class="nav__link" href="/fr/" role="menuitem">Accueil</a>
+        <a class="nav__link" href="/fr/pulsekey.html" role="menuitem">PulseKey&trade;</a>
+        <a class="nav__link" href="/fr/monai.html" role="menuitem">Monai&trade;</a>
+        <a class="nav__link" href="/fr/about.html" role="menuitem">&Agrave; propos</a>
+        <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener" role="menuitem">Billets</a>
+        <a class="nav__link active" href="/fr/contact.html" role="menuitem">Contact</a>
+        <a class="nav__link nav__link--lang" href="/contact.html" aria-label="Switch to English">EN</a>
+        <a class="btn btn-primary nav__cta" href="/fr/contact.html">Demander une d&eacute;mo</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <a class="nav__link" href="/fr/">Accueil</a>
+    <a class="nav__link" href="/fr/pulsekey.html">PulseKey&trade;</a>
+    <a class="nav__link" href="/fr/monai.html">Monai&trade;</a>
+    <a class="nav__link" href="/fr/about.html">&Agrave; propos</a>
+    <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener">Billets</a>
+    <a class="nav__link active" href="/fr/contact.html">Contact</a>
+    <a class="nav__link nav__link--lang" href="/contact.html">EN</a>
+    <a class="btn btn-primary" href="/fr/contact.html">Demander une d&eacute;mo</a>
+  </div>
+
+  <main id="main-content">
+
+    <section style="background: #081e2f; padding: calc(var(--nav-h) + clamp(40px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);" aria-labelledby="contact-fr-hero-heading">
+      <div class="container">
+        <p class="section-label">Nous joindre</p>
+        <h1 id="contact-fr-hero-heading" style="color: #ffffff;">Parlons</h1>
+        <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.75; max-width: 600px; margin-top: 20px;">Que vous soyez un individu, un clinicien, un employeur ou un chercheur, nous serions ravis de vous entendre.</p>
+      </div>
+    </section>
+
+    <section style="background: #ffffff;" aria-labelledby="contact-fr-form-heading">
+      <div class="container">
+
+        <!-- Success banner (shown when ?sent=1) -->
+        <div id="contact-success-banner" class="contact-success-banner" style="display:none;" role="alert">
+          Merci pour votre message. Nous vous contacterons sous peu.
+        </div>
+
+        <div class="contact-grid">
+
+          <div>
+            <p class="section-label">Contact</p>
+            <h2 id="contact-fr-form-heading">Envoyez-nous un message</h2>
+            <form action="https://formsubmit.co/info@mentaimage.com" method="POST" style="margin-top: 28px; display: flex; flex-direction: column; gap: 18px;" onsubmit="handleContactForm(event)">
+              <input type="hidden" name="_subject" value="Nouveau message depuis le site mentAImage" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_next" value="https://mentaimage.com/fr/contact.html?sent=1" />
+              <div>
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="fr-contact-name">Nom complet <span style="color:#c0392b;">*</span></label>
+                <input id="fr-contact-name" name="name" type="text" required placeholder="Votre nom" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); outline: none;" />
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="fr-contact-email">Courriel <span style="color:#c0392b;">*</span></label>
+                <input id="fr-contact-email" name="email" type="email" required placeholder="vous@exemple.com" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); outline: none;" />
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="fr-contact-type">Je suis&hellip;</label>
+                <select id="fr-contact-type" name="type" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); background: #fff; outline: none;">
+                  <option value="">Choisir</option>
+                  <option>Individu / utilisateur potentiel</option>
+                  <option>Employeur / responsable RH</option>
+                  <option>Clinicien ou chercheur</option>
+                  <option>Investisseur ou partenaire</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="fr-contact-message">Message <span style="color:#c0392b;">*</span></label>
+                <textarea id="fr-contact-message" name="message" required rows="5" placeholder="Comment pouvons-nous vous aider?" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); resize: vertical; outline: none;"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Envoyer</button>
+            </form>
+          </div>
+
+          <div style="padding-top: 16px;">
+            <p class="section-label">Autres fa&ccedil;ons de nous joindre</p>
+            <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 28px;">
+              <div>
+                <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Courriel</p>
+                <a href="mailto:info@mentaimage.com" style="color: var(--teal);">info@mentaimage.com</a>
+              </div>
+              <div>
+                <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Bas&eacute; &agrave;</p>
+                <p style="color: var(--grey-text);">Montr&eacute;al, Qu&eacute;bec, Canada</p>
+              </div>
+              <div>
+                <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Partenariats et projets pilotes</p>
+                <p style="color: var(--grey-text);">Int&eacute;ress&eacute; par un projet pilote de recherche subventionn&eacute;? Nous travaillons avec des organisations via les programmes Primo-Adoptants et CIS. <a class="btn btn-primary" href="/fr/" style="margin-top: 12px; display: inline-flex;">En savoir plus</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png" alt="mentAImage" class="footer__logo" height="34" />
+          <p class="footer__tagline">Mieux-&ecirc;tre mental pr&eacute;ventif pour les individus et les organisations. Pas de th&eacute;rapie. Pas de diagnostic. Un soutien plus intelligent.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Produit</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/pulsekey.html">PulseKey&trade;</a></li>
+            <li><a class="footer__link-btn" href="/fr/monai.html">Monai&trade;</a></li>
+            <li><a class="footer__link-btn" href="/fr/#home-fr-orgs">Pour les organisations</a></li>
+            <li><a class="footer__link-btn" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank">T&eacute;l&eacute;charger</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Compagnie</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/about.html">&Agrave; propos</a></li>
+            <li><a class="footer__link-btn" href="/fr/contact.html">Contact</a></li>
+            <li><a class="footer__link-btn" href="/fr/contact.html">Demander une d&eacute;mo</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">L&eacute;gal</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/fr/privacy.html">Politique de confidentialit&eacute;</a></li>
+            <li><a class="footer__link-btn" href="/fr/terms.html">Conditions d&rsquo;utilisation</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Langue</p>
+          <ul class="footer__links">
+            <li><a class="footer__link-btn" href="/contact.html">English</a></li>
+            <li><a href="/fr/contact.html" aria-current="true">Fran&ccedil;ais</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. Tous droits r&eacute;serv&eacute;s.</p>
+        <p class="footer__disclaimer-line">mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental, pas de th&eacute;rapie. <button class="disclaimer-trigger">Voir la clause compl&egrave;te.</button></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,3283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mentAImage&trade;, Build mental wellness. Manage stress before it becomes burnout.</title>
+  <meta name="description" content="mentAImage&trade; helps individuals and organizations build mental wellness and manage stress through personalized, evidence-based multimodal check-ins. PulseKey&trade; and Monai&trade;, built on science, privacy, and real human understanding." />
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal:        #00AFFF;
+  --teal-hover:  #0099e6;
+  --green:       #00FFA3;
+  --navy:        #081e2f;
+  --navy-mid:    #124870;
+  --cream:       #F2EDE3;
+  --white:       #FFFFFF;
+  --grey-border: #ddd8cf;
+  --grey-text:   #5a6a7a;
+  --body-text:   #124870;
+  --nav-h:       64px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ============================================================
+   Typography
+   ============================================================ */
+h1, h2, h3, h4 { line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: var(--navy-mid); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--navy-mid); }
+h3 { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 700; color: var(--navy-mid); }
+h4 { font-size: 1rem; font-weight: 700; color: var(--navy-mid); }
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+/* Headings on dark backgrounds override */
+.for-orgs-home h1, .for-orgs-home h2, .for-orgs-home h3, .for-orgs-home h4,
+.for-orgs h1, .for-orgs h2, .for-orgs h3, .for-orgs h4,
+.appstore h1, .appstore h2, .appstore h3, .appstore h4,
+.between-sessions h1, .between-sessions h2, .between-sessions h3, .between-sessions h4,
+.pk-hero h1, .pk-hero h2, .pk-hero h3, .pk-hero h4,
+.monai-hero h1, .monai-hero h2, .monai-hero h3, .monai-hero h4,
+.hero h1, .hero h2, .hero h3, .hero h4,
+.footer h1, .footer h2, .footer h3, .footer h4 {
+  color: #ffffff;
+}
+
+/* Headings on cream/light backgrounds */
+.values h1, .values h2, .values h3, .values h4,
+.position h1, .position h2, .position h3, .position h4,
+.why-multimodal h1, .why-multimodal h2, .why-multimodal h3, .why-multimodal h4,
+.monai-different h1, .monai-different h2, .monai-different h3, .monai-different h4 {
+  color: var(--navy-mid);
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.container {
+  max-width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+section {
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+
+/* ============================================================
+   Section label (horizontal-line pattern)
+   ============================================================ */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+.section-label::before,
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--teal);
+  opacity: 0.35;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.75rem 1.75rem;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.18s, background 0.18s, border-color 0.18s;
+  border: 2px solid transparent;
+  line-height: 1;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+  border-color: transparent;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  opacity: 0.88;
+  outline: none;
+}
+
+/* For dark backgrounds */
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+.btn-outline:hover,
+.btn-outline:focus {
+  background: rgba(255,255,255,0.12);
+  outline: none;
+}
+
+/* For light backgrounds */
+.btn-outline-dark {
+  background: transparent;
+  color: var(--navy-mid);
+  border-color: var(--navy-mid);
+}
+.btn-outline-dark:hover,
+.btn-outline-dark:focus {
+  background: rgba(18,72,112,0.07);
+  outline: none;
+}
+
+/* btn-primary--solid: for use on light/white backgrounds where green fades out */
+.btn-primary--solid {
+  background: var(--teal);
+}
+.btn-primary--solid:hover,
+.btn-primary--solid:focus {
+  background: var(--teal-hover);
+  opacity: 1;
+}
+
+/* Teal outline variant (kept for compatibility) */
+.btn-outline-teal {
+  background: transparent;
+  color: var(--teal);
+  border-color: var(--teal);
+}
+.btn-outline-teal:hover,
+.btn-outline-teal:focus {
+  background: var(--teal);
+  color: var(--white);
+  outline: none;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-h);
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav__logo {
+  height: 36px;
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav__link {
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+.nav__link:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--teal);
+}
+.nav__link.active {
+  color: var(--teal);
+}
+
+.nav__link--lang {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 4px;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.nav__link--lang:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.nav__cta {
+  margin-left: 8px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.88rem;
+}
+
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px;
+}
+.nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.nav__mobile {
+  display: none;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  width: 100%;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 16px 24px 24px;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 999;
+}
+.nav__mobile.open { display: flex; }
+.nav__mobile .nav__link {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+}
+.nav__mobile .btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   Page show/hide
+   ============================================================ */
+.page-section {
+  display: none;
+}
+.page-section.active {
+  display: block;
+}
+
+/* Legal pages */
+.legal-body h2 { font-size: clamp(1.1rem, 2vw, 1.3rem); margin-top: 2rem; margin-bottom: 0.5rem; color: var(--navy-mid); }
+.legal-body h3 { font-size: 1rem; margin-top: 1.25rem; margin-bottom: 0.25rem; color: var(--navy-mid); }
+.legal-body ul { padding-left: 1.4em; margin-bottom: 1rem; }
+.legal-body ul li { margin-bottom: 0.35rem; list-style: disc; color: var(--grey-text); }
+.legal-body p { color: var(--grey-text); }
+.legal-body { padding-top: 2rem; padding-bottom: 3rem; }
+
+/* Hero sections already include nav-h in their own padding — no extra offset needed */
+
+/* ============================================================
+   Home hero
+   ============================================================ */
+.hero {
+  padding: calc(var(--nav-h) + clamp(40px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);
+  background: var(--navy);
+}
+.hero h1 { color: #ffffff; }
+.hero .hero__sub { color: rgba(255,255,255,0.78); }
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr 44%;
+  gap: 0;
+  align-items: center;
+  min-height: clamp(420px, 55vw, 620px);
+}
+
+.hero__content {
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__image-wrap {
+  position: relative;
+  height: 100%;
+  min-height: clamp(420px, 55vw, 620px);
+  overflow: hidden;
+  margin-top: calc(-1 * (clamp(40px, 5vw, 64px) + var(--nav-h)));
+  margin-bottom: calc(-1 * clamp(40px, 5vw, 64px));
+  margin-right: -24px;
+}
+
+.hero__image-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero__image-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--navy) 0%, transparent 45%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .hero__layout {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+  .hero__image-wrap {
+    display: none;
+  }
+}
+
+.hero__sub {
+  font-size: 1rem;
+  color: var(--grey-text);
+  margin-top: 16px;
+  margin-bottom: 28px;
+  line-height: 1.75;
+  max-width: 600px;
+}
+
+.hero__disclaimer {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 16px;
+  font-style: italic;
+}
+
+.hero__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   Values section
+   ============================================================ */
+.values {
+  background: var(--cream);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 28px;
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card {
+  background: var(--white);
+  border: 1px solid rgba(18,72,112,0.1);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.card h3 {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--grey-text);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   For Organizations (homepage dark section)
+   ============================================================ */
+.for-orgs-home {
+  background: var(--navy);
+  color: var(--white);
+}
+.for-orgs-home .section-label { color: var(--teal); }
+.for-orgs-home .section-label::before,
+.for-orgs-home .section-label::after { background: var(--teal); opacity: 0.35; }
+
+.for-orgs-home__intro {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.75;
+  max-width: 780px;
+  margin-bottom: 40px;
+}
+
+/* Stat cards */
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.stat-card__number {
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.stat-card__label {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.55;
+}
+
+/* Privacy commit note (plain blockquote style, replaces dark inset box) */
+.privacy-commit-box {
+  border-left: 3px solid rgba(0,175,255,0.5);
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  background: transparent;
+}
+.privacy-commit-box p {
+  color: rgba(255,255,255,0.88);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ============================================================
+   Position section
+   ============================================================ */
+.position {
+  background: var(--cream);
+}
+
+.position__inner {
+  max-width: 720px;
+}
+
+.position h2 {
+  margin-bottom: 20px;
+}
+
+.position p {
+  color: var(--grey-text);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.position__link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 2px solid var(--teal);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.position__link:hover { color: var(--teal-hover); border-color: var(--teal-hover); }
+
+/* ============================================================
+   Who built this
+   ============================================================ */
+.who-built {
+  background: var(--white);
+}
+
+.who-built__inner {
+  max-width: 720px;
+}
+
+.who-built h2 {
+  margin-bottom: 20px;
+}
+
+.who-built p {
+  color: var(--grey-text);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* ============================================================
+   App store section
+   ============================================================ */
+.appstore {
+  text-align: center;
+  background: var(--navy);
+}
+.appstore .section-label { color: var(--teal); }
+.appstore .section-label::before,
+.appstore .section-label::after { background: var(--teal); opacity: 0.35; }
+
+.appstore h2 {
+  margin-bottom: 28px;
+}
+
+/* Plain text download links (replaces faux store badges) */
+.store-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  transition: color 0.15s;
+  padding: 0;
+}
+.store-badge:hover { color: var(--teal); }
+
+.store-badge__icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.store-badge__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.store-badge__line1 {
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.75;
+}
+.store-badge__line2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.appstore__note {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+}
+
+.appstore--light {
+  background: var(--white);
+}
+.appstore--light .section-label { color: var(--teal); }
+.appstore--light h2 { color: var(--navy-mid); }
+.appstore--light .store-badge { color: var(--navy-mid); }
+.appstore--light .store-badge:hover { color: var(--teal); }
+.appstore--light .appstore__note { color: var(--grey-text); }
+
+/* ============================================================
+   PulseKey hero
+   ============================================================ */
+.pk-hero {
+  background: var(--navy);
+  padding: calc(var(--nav-h) + clamp(40px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);
+}
+
+.pk-hero__content {
+  max-width: 680px;
+}
+.pk-hero .hero__sub { color: rgba(255,255,255,0.78); }
+.pk-hero .hero__disclaimer { color: rgba(255,255,255,0.45); }
+
+.pk-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--white);
+}
+
+.pk-hero__layout {
+  display: block;
+}
+
+/* ============================================================
+   Feature grid
+   ============================================================ */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid rgba(18,72,112,0.1);
+}
+
+.feature-card__icon {
+  width: 28px;
+  height: 28px;
+  color: var(--teal);
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.feature-card h3 {
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 0.93rem;
+  color: var(--grey-text);
+}
+
+/* ============================================================
+   Why multimodal
+   ============================================================ */
+.why-multimodal {
+  background: var(--cream);
+}
+
+.why-multimodal__inner {
+  max-width: 760px;
+}
+
+.why-multimodal h2 {
+  margin-bottom: 20px;
+}
+
+.why-multimodal p {
+  font-size: 1.05rem;
+  color: var(--grey-text);
+  line-height: 1.75;
+}
+
+/* ============================================================
+   For Orgs (PulseKey page dark section)
+   ============================================================ */
+.for-orgs {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.for-orgs .section-label { color: var(--teal); }
+.for-orgs .section-label::before,
+.for-orgs .section-label::after { background: var(--teal); opacity: 0.35; }
+
+.for-orgs p {
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 20px;
+}
+
+.for-orgs ul {
+  margin: 0 0 28px 0;
+}
+
+.for-orgs ul li {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  padding: 8px 0 8px 28px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.for-orgs ul li:last-child { border-bottom: none; }
+
+.for-orgs ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: var(--teal);
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   Privacy grid
+   ============================================================ */
+.privacy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.privacy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid rgba(18,72,112,0.1);
+  border-radius: 8px;
+}
+
+.privacy-item__text {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   Monai hero
+   ============================================================ */
+.monai-hero {
+  background: var(--navy);
+  padding: calc(var(--nav-h) + clamp(40px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);
+}
+
+.monai-hero__content {
+  max-width: 680px;
+}
+.monai-hero .hero__sub { color: rgba(255,255,255,0.78); }
+.monai-hero .hero__disclaimer { color: rgba(255,255,255,0.45); }
+
+.monai-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #ffffff;
+}
+.monai-hero h1 span {
+  color: var(--teal);
+}
+
+.monai-hero__layout {
+  display: grid;
+  grid-template-columns: 55% 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.monai-hero__character {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+  max-height: 420px;
+}
+.monai-hero__character img {
+  width: clamp(260px, 32vw, 460px);
+  opacity: 0.9;
+  pointer-events: none;
+  user-select: none;
+  margin-bottom: -40px;
+}
+@media (max-width: 768px) {
+  .monai-hero__character { display: none; }
+}
+
+/* ============================================================
+   What Monai does (4-column grid)
+   ============================================================ */
+.monai-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.monai-col {
+  padding: clamp(18px, 2.5vw, 24px) 20px;
+  background: var(--white);
+  border: 1px solid rgba(18,72,112,0.1);
+  border-radius: 8px;
+}
+
+.monai-col__num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.monai-col h3 {
+  margin-bottom: 10px;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.monai-col p {
+  font-size: 0.9rem;
+  color: var(--grey-text);
+  margin: 0;
+}
+
+/* ============================================================
+   What makes Monai different
+   ============================================================ */
+.monai-different {
+  background: var(--cream);
+}
+
+.monai-different h2 {
+  margin-bottom: 24px;
+}
+
+.monai-different__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.monai-different__item {
+  background: var(--white);
+  border: 1px solid rgba(18,72,112,0.1);
+  border-radius: 8px;
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.monai-different__item h3 {
+  margin-bottom: 10px;
+}
+
+.monai-different__item p {
+  font-size: 0.95rem;
+  color: var(--grey-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   What Monai is not
+   ============================================================ */
+.not-section {
+  background: #fff8f7;
+  border-top: 3px solid #c0392b;
+}
+
+.not-section h2 {
+  color: #c0392b;
+  margin-bottom: 32px;
+}
+
+.not-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.not-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--white);
+  border: 1px solid #F3C6BE;
+  border-radius: 8px;
+}
+
+.not-item__x {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: #c0392b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.not-item__text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.crisis-callout {
+  background: var(--white);
+  border: 1.5px solid #c0392b;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-top: 8px;
+}
+
+.crisis-callout p {
+  font-size: 0.95rem;
+  color: var(--navy);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.crisis-callout strong {
+  color: #c0392b;
+}
+
+/* ============================================================
+   Between sessions
+   ============================================================ */
+.between-sessions {
+  background: var(--navy);
+}
+.between-sessions .section-label { color: var(--teal); }
+.between-sessions .section-label::before,
+.between-sessions .section-label::after { background: var(--teal); opacity: 0.35; }
+.between-sessions p { color: rgba(255,255,255,0.78) !important; }
+
+.between-sessions__inner {
+  max-width: 720px;
+}
+
+/* ============================================================
+   Monai disclaimer
+   ============================================================ */
+.monai-disclaimer {
+  background: var(--cream);
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 16px;
+}
+
+.monai-disclaimer p {
+  font-size: 0.82rem;
+  color: var(--grey-text);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ============================================================
+   Utility
+   ============================================================ */
+.section-divider {
+  height: 1px;
+  background: var(--grey-border);
+  margin: 0;
+}
+
+/* Gradient keyword underline (decorative, text only) */
+.underline-gradient {
+  display: inline;
+  background-image: linear-gradient(76deg, var(--teal) 0%, var(--green) 100%);
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  padding-bottom: 3px;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 64px 0 0;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.footer__logo {
+  height: 34px;
+  width: auto;
+  margin-bottom: 16px;
+}
+
+.footer__tagline {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+}
+
+.footer__col-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 16px;
+}
+
+.footer__links li {
+  margin-bottom: 10px;
+}
+
+.footer__links a,
+.footer__links .footer__link-btn {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.15s;
+  cursor: pointer;
+}
+.footer__links a:hover,
+.footer__links .footer__link-btn:hover { color: var(--white); }
+
+.footer__link-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.footer__bottom-left {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer__disclaimer-line {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.patent {
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: inherit;
+  opacity: 0.6;
+  vertical-align: super;
+  white-space: nowrap;
+}
+
+.footer__citations {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 20px 0 0;
+  margin-bottom: 20px;
+}
+
+.footer__citations p {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.footer__citations p:last-child {
+  margin-bottom: 0;
+}
+
+.footer__disclaimer-line .disclaimer-trigger {
+  color: rgba(255,255,255,0.6);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+}
+.footer__disclaimer-line .disclaimer-trigger:hover {
+  color: var(--white);
+}
+
+/* ============================================================
+   Modal system (unchanged)
+   ============================================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 40px 44px;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-card--wide {
+  max-width: 680px;
+}
+
+.modal-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: var(--navy);
+}
+
+.modal-card p {
+  font-size: 0.93rem;
+  color: var(--grey-text);
+  line-height: 1.7;
+}
+
+.modal-card p strong {
+  color: var(--navy);
+}
+
+.modal-card__fr-text {
+  font-size: 1rem;
+  color: var(--body-text);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--grey-text);
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+.modal-close:hover {
+  color: var(--navy);
+  background: var(--cream);
+}
+
+.modal-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 20px 0 6px;
+}
+.modal-section-title:first-of-type {
+  margin-top: 8px;
+}
+
+/* ============================================================
+   Responsive — 1024px
+   ============================================================ */
+@media (max-width: 1024px) {
+  .monai-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer__brand {
+    grid-column: span 2;
+  }
+
+  .monai-different__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Responsive — 768px
+   ============================================================ */
+@media (max-width: 768px) {
+  section {
+    padding: clamp(40px, 6vw, 64px) 0;
+  }
+
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+
+  /* hero layout is already single-column block */
+
+  .hero__visual {
+    display: none;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .privacy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .not-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .monai-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .monai-different__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .footer__brand {
+    grid-column: span 2;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .modal-card {
+    padding: 28px 24px;
+  }
+}
+
+/* ============================================================
+   Responsive — 480px
+   ============================================================ */
+@media (max-width: 480px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+  .footer__brand { grid-column: span 1; }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .store-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.about-founder-layout {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+.about-founder-photo { flex-shrink: 0; }
+.about-founder-photo img {
+  border-radius: 8px;
+  width: 100%;
+  max-width: 280px;
+  display: block;
+}
+.about-pull-quote {
+  border-left: 3px solid var(--teal);
+  padding-left: 24px;
+  font-style: italic;
+  color: var(--teal);
+  font-size: 1.1rem;
+  margin-top: 32px;
+}
+@media (max-width: 768px) {
+  .about-founder-layout { flex-direction: column; gap: 28px; }
+  .about-founder-photo img { max-width: 200px; }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- FR language modal -->
+  <div class="modal-overlay" id="modal-fr" role="dialog" aria-modal="true" aria-labelledby="modal-fr-title">
+    <div class="modal-card">
+      <button class="modal-close" data-close="modal-fr" aria-label="Close">&times;</button>
+      <h2 id="modal-fr-title">Langue / Language</h2>
+      <p style="color: var(--grey-text); margin-bottom: 12px;">La version fran&ccedil;aise compl&egrave;te est en cours de d&eacute;veloppement.</p>
+      <p style="color: var(--grey-text); font-size: 0.9rem;">French version coming soon. Some French content is already available on our main website. Check back shortly.</p>
+      <div style="margin-top: 20px;">
+        <button class="btn btn-primary" data-close="modal-fr" style="font-size: 0.9rem;">Stay in English</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full disclaimer modal -->
+  <div class="modal-overlay" id="modal-disclaimer" role="dialog" aria-modal="true" aria-labelledby="modal-disclaimer-title">
+    <div class="modal-card modal-card--wide">
+      <button class="modal-close" data-close="modal-disclaimer" aria-label="Close">&times;</button>
+      <h2 id="modal-disclaimer-title">Full Disclaimer</h2>
+
+      <p class="modal-section-title">Not therapy or clinical care</p>
+      <p>mentAImage&trade; is a preventive mental wellness platform. PulseKey&trade; and Monai&trade; are not therapy, counselling, psychotherapy, or clinical mental health treatment. Nothing on this platform constitutes a medical or psychiatric diagnosis, clinical assessment, or treatment recommendation.</p>
+
+      <p class="modal-section-title">Not a crisis service</p>
+      <p>mentAImage&trade; and Monai&trade; are not crisis services. If you are experiencing a mental health crisis, thoughts of self-harm or suicide, or any emergency, do not rely on this platform. <strong>Call or text 9-8-8</strong> (Canada Suicide Crisis Helpline, available 24/7), call <strong>911</strong>, or go to the nearest emergency department.</p>
+
+      <p class="modal-section-title">About Monai</p>
+      <p>Monai&trade; is an artificial intelligence system. You are not speaking with a human therapist, psychologist, counsellor, or crisis responder. Monai&trade; does not diagnose, prescribe, treat, or replace professional care. Monai&trade; is designed to support reflection and coping-skills practice only.</p>
+
+      <p class="modal-section-title">Employer data policy</p>
+      <p>When PulseKey&trade; is deployed through an employer or organization, no individual employee check-in content is ever shared with the employer. Employers and HR administrators see only aggregated, de-identified group-level trend data. Individual mental health information is never used in employment decisions, performance reviews, or disciplinary processes. No individual employee data is shared with employers - ever.</p>
+
+      <p class="modal-section-title">Data and privacy</p>
+      <p>Your personal data is stored in Canada, encrypted at rest, and is never sold to third parties. You may request deletion of your data at any time. <button class="footer__link-btn" data-page="privacy" style="color:var(--teal); font-size:inherit;" onclick="document.getElementById('modal-disclaimer').classList.remove('open'); document.body.style.overflow='';">See our Privacy Policy.</button></p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo-link" data-page="home" aria-label="mentAImage home">
+        <img
+          src="https://mentaimage.com/wp-content/uploads/2025/02/cropped-mentAImage-logo_clear-bkg-1.png"
+          alt="mentAImage"
+          class="nav__logo"
+          height="36"
+        />
+      </a>
+
+      <div class="nav__links" role="menubar">
+        <button class="nav__link active" data-page="home" role="menuitem">Home</button>
+        <button class="nav__link" data-page="pulsekey" role="menuitem">PulseKey&trade;</button>
+        <button class="nav__link" data-page="monai" role="menuitem">Monai&trade;</button>
+        <button class="nav__link" data-page="about" role="menuitem">About</button>
+        <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener" role="menuitem">Stories</a>
+        <button class="nav__link" data-page="contact" role="menuitem">Contact</button>
+        <button class="nav__link nav__link--lang" id="fr-btn" role="menuitem" aria-label="Switch to French">FR</button>
+        <button class="btn btn-primary nav__cta" data-page="contact">Request a Demo</button>
+      </div>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <button class="nav__link" data-page="home">Home</button>
+    <button class="nav__link" data-page="pulsekey">PulseKey&trade;</button>
+    <button class="nav__link" data-page="monai">Monai&trade;</button>
+    <button class="nav__link" data-page="about">About</button>
+    <a class="nav__link" href="https://mentaimage.com/blog/" target="_blank" rel="noopener">Stories</a>
+    <button class="nav__link" data-page="contact">Contact</button>
+    <button class="nav__link nav__link--lang" id="fr-btn-mobile">FR</button>
+    <button class="btn btn-primary" data-page="contact">Request a Demo</button>
+  </div>
+
+  <main id="main-content">
+
+    <!-- PAGE 1: HOME -->
+    <div class="page-section active" id="page-home">
+
+      <!-- Hero -->
+      <section class="hero" id="home">
+        <div class="container">
+          <div class="hero__layout">
+            <div class="hero__content">
+              <h1>Build mental wellness. <span class="underline-gradient">Manage stress</span> before it becomes burnout.</h1>
+              <p class="hero__sub">The World Health Organization classifies burnout as chronic workplace stress that has not been successfully managed. mentAImage&trade; helps individuals and organizations act earlier, through short multimodal check-ins analyzed by AI to surface personalized, evidence-based mental wellness support.</p>
+              <div class="btn-group">
+                <button class="btn btn-primary" data-page="home" data-scroll="home-for-individuals">For Individuals</button>
+                <button class="btn btn-outline" data-page="home" data-scroll="home-for-orgs">For Organizations</button>
+              </div>
+              <p class="hero__disclaimer">Not therapy. Not diagnosis. Not surveillance.</p>
+            </div>
+            <div class="hero__image-wrap">
+              <img src="https://mentaimage.com/wp-content/uploads/2026/06/burnout-hero.png" alt="" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Values -->
+      <section class="values" aria-labelledby="values-heading">
+        <div class="container">
+          <p class="section-label">Why mentAImage&trade;</p>
+          <h2 id="values-heading">Built for people and the organizations that support them</h2>
+          <div class="grid-3" role="list">
+
+            <article class="card" role="listitem">
+              <h3>For Individuals</h3>
+              <p>Three minutes a week. Voice, text, and drawing check-ins analyzed by AI to build a personalized mental wellness picture, surface evidence-based coping tools, and help you understand and manage stress better over time.</p>
+            </article>
+
+            <article class="card" role="listitem">
+              <h3>For Organizations</h3>
+              <p>Aggregated, privacy-preserving team insights that help leaders identify mental wellness patterns and take meaningful action on workplace wellbeing, without ever monitoring individuals.</p>
+            </article>
+
+            <article class="card" role="listitem">
+              <h3>Privacy First</h3>
+              <p>Your check-in data is never sold. Employers never see individual content. All sensitive data is encrypted and stored in Canada.</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- For Individuals expanded section -->
+      <section id="home-for-individuals" aria-labelledby="for-individuals-heading" style="background: var(--white);">
+        <div class="container">
+          <p class="section-label">For Individuals</p>
+          <h2 id="for-individuals-heading">Your mental wellness patterns, in your hands</h2>
+          <div style="margin-top: 32px;">
+            <p style="font-size: 1.05rem; color: var(--grey-text); line-height: 1.75;">PulseKey&trade; is designed for individuals who want to take an active role in their mental wellness before stress becomes burnout. Three minutes a week gives you a personal window into how stress accumulates and how your mental wellness shifts over time, using voice, text, and drawing signals that together paint a fuller picture than any single measure.</p>
+            <p style="font-size: 1.05rem; color: var(--grey-text); line-height: 1.75;">Monai&trade;, your AI reflection companion, draws on your PulseKey&trade; history to offer support and evidence-based coping strategies tailored to your patterns, not a generic script.</p>
+            <div style="margin-top: 28px;">
+              <button class="btn btn-primary btn-primary--solid" data-page="pulsekey">Explore PulseKey&trade;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- For Organizations (homepage) -->
+      <section class="for-orgs-home" id="home-for-orgs" aria-labelledby="home-orgs-heading">
+        <div class="container">
+          <p class="section-label">For Organizations</p>
+          <h2 id="home-orgs-heading">Built for organizations that want to <span class="underline-gradient">act on mental wellness</span>, not just measure it</h2>
+          <p class="for-orgs-home__intro">Burnout is the WHO-defined outcome of chronic workplace stress that has not been successfully managed. It is the leading driver of long-term disability insurance claims and a primary cause of absenteeism and employee turnover. Employers and HR leaders using PulseKey&trade; get aggregated, de-identified team-level insights to act earlier, before burnout shows up on a claims report. No individual check-in content, no surveillance.</p>
+
+          <div class="stat-cards">
+            <div class="stat-card">
+              <div class="stat-card__number">$300B+<br><span style="font-size:1rem;">per year</span></div>
+              <p class="stat-card__label">estimated cost of workplace burnout in North America, driven by absenteeism, presenteeism, and turnover<sup style="color:var(--teal);">1</sup></p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__number">1 in 5<br><span style="font-size:1rem;">employees</span></div>
+              <p class="stat-card__label">estimated to be neurodivergent, often with non-verbal communication styles that current wellness tools miss<sup style="color:var(--teal);">2</sup></p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__number">#1<br><span style="font-size:1rem;">insurance claim</span></div>
+              <p class="stat-card__label">Mental health is the leading driver of long-term disability claims in Canada, surpassing all other disease categories<sup style="color:var(--teal);">3</sup></p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__number">50&ndash;200%<br><span style="font-size:1rem;">of salary</span></div>
+              <p class="stat-card__label">cost to replace one employee lost to burnout-driven turnover, before accounting for institutional knowledge and team disruption<sup style="color:var(--teal);">4</sup></p>
+            </div>
+          </div>
+
+          <p class="privacy-note">No individual employee data is shared with employers. Ever. Organizations see only aggregated team trends, used to improve workplace conditions - not to evaluate individuals.</p>
+
+          <button class="btn btn-primary" data-page="contact">Request a pilot</button>
+        </div>
+      </section>
+
+      <!-- Position -->
+      <section class="position" aria-labelledby="position-heading">
+        <div class="container">
+          <div class="position__inner">
+            <p class="section-label">Our position</p>
+            <h2 id="position-heading">Not therapy. A smarter kind of support.</h2>
+            <p>We are not trying to automate therapy. We are trying to prevent avoidable distress from staying invisible until it becomes a clinical crisis.</p>
+            <p>mentAImage&trade; is a preventive mental wellness platform. PulseKey&trade; gives you a non-diagnostic window into your mental wellness patterns. Monai&trade; offers reflection, psychoeducation, and coping-skills support. Neither replaces professional care, and we are clear about that.</p>
+            <button class="position__link disclaimer-trigger">Read our full position on AI and mental health</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who built this -->
+      <section class="who-built" aria-labelledby="who-built-heading">
+        <div class="container">
+          <div class="who-built__inner">
+            <p class="section-label">The team</p>
+            <h2 id="who-built-heading">Built by a multidisciplinary team</h2>
+            <p>mentAImage&trade; was founded by a physician scientist with over 25 years at the intersection of medicine, AI, and human behavior. The platform is developed by a team of AI and machine learning engineers, behavioral scientists, and mental health researchers. Every design decision is grounded in peer-reviewed evidence, not consumer trends.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- App store -->
+      <section class="appstore" id="app-download" aria-labelledby="appstore-heading">
+        <div class="container">
+          <p class="section-label">Download</p>
+          <h2 id="appstore-heading">Download free on iOS and Android</h2>
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="Download mentAImage on the App Store">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span class="store-badge__text">
+                <span class="store-badge__line1">Download on the</span>
+                <span class="store-badge__line2">App Store</span>
+              </span>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Get mentAImage on Google Play">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+              <span class="store-badge__text">
+                <span class="store-badge__line1">Get it on</span>
+                <span class="store-badge__line2">Google Play</span>
+              </span>
+            </a>
+          </div>
+          <p class="appstore__note">Download free on iOS and Android.</p>
+        </div>
+      </section>
+
+      <footer class="footer" role="contentinfo" aria-label="Site footer">
+        <div class="container">
+          <div class="footer__grid">
+            <div class="footer__brand">
+              <img
+                src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png"
+                alt="mentAImage"
+                class="footer__logo"
+                height="34"
+              />
+              <p class="footer__tagline">Preventive mental wellness for individuals and organizations. Not therapy. Not diagnosis. A smarter kind of support.</p>
+            </div>
+            <div>
+              <p class="footer__col-title">Product</p>
+              <ul class="footer__links">
+                <li><a class="footer__link-btn" href="https://mentaimage.com/pulsekey/">PulseKey&trade;</a></li>
+                <li><a class="footer__link-btn" href="https://mentaimage.com/monai/">Monai&trade;</a></li>
+                <li><a class="footer__link-btn" href="https://mentaimage.com/#home-for-orgs">For Organizations</a></li>
+                <li><button class="footer__link-btn" data-page="contact">Download</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Company</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="about">About</button></li>
+                <li><button class="footer__link-btn" data-page="contact">Contact</button></li>
+                <li><button class="footer__link-btn" data-page="contact">Request a Demo</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Legal</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="privacy">Privacy Policy</button></li>
+                <li><button class="footer__link-btn" data-page="terms">Terms of Service</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Language</p>
+              <ul class="footer__links">
+                <li><a href="#" aria-current="true">English</a></li>
+                <li><button class="footer__link-btn" id="fr-footer">Fran&ccedil;ais</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__citations" aria-label="Statistical citations">
+            <p><sup>1</sup> Gallup, Inc. (2023). <em>State of the Global Workplace: 2023 Report.</em> Gallup Press. Burnout-related disengagement costs estimated at over $8.8 trillion globally; North American workplace stress and burnout costs derived from absenteeism, presenteeism, and voluntary turnover data.</p>
+            <p><sup>2</sup> SHRM Foundation. (2023). <em>Neurodiversity in the Workplace.</em> Estimates of 15&ndash;20% of the workforce meeting criteria for one or more neurodevelopmental conditions (ADHD, autism spectrum, dyslexia, dyscalculia, and related conditions) when prevalence data are combined across conditions. Estimates vary by study and methodology.</p>
+            <p><sup>3</sup> Canadian Life and Health Insurance Association (CLHIA). <em>Canadian Life and Health Insurance Facts</em> (annual); Sun Life Financial. <em>Sun Life Benefits Report</em> (annual). Mental health conditions, including depression, anxiety, and stress-related disorders, are consistently reported as the leading cause of long-term disability claims among Canadian group benefits plan holders, surpassing musculoskeletal and all other disease categories.</p>
+            <p><sup>4</sup> Society for Human Resource Management (SHRM). <em>Talent Acquisition Benchmarking Report</em>; Work Institute. <em>Retention Report</em> (2023). Replacement costs per employee estimated at 50&ndash;200% of annual salary, varying by role seniority, specialization, and industry sector. Excludes downstream costs of institutional knowledge loss and team productivity disruption.</p>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. All rights reserved.</p>
+            <p class="footer__disclaimer-line">mentAImage&trade; is a mental wellness platform, not therapy or crisis support. <button class="disclaimer-trigger" id="disclaimer-trigger-home">See full disclaimer.</button></p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /page-home -->
+
+
+    <!-- PAGE 2: PULSEKEY -->
+    <div class="page-section" id="page-pulsekey">
+
+      <!-- Hero -->
+      <section class="pk-hero" id="pulsekey" aria-labelledby="pk-hero-heading">
+        <div class="container">
+          <div class="pk-hero__layout">
+            <div class="pk-hero__content">
+              <h1 id="pk-hero-heading">PulseKey&trade;</h1>
+              <p class="hero__sub">A short, structured mental wellness and wellbeing check-in that helps you build better stress management habits over time - through three channels, not just one.</p>
+              <div class="btn-group">
+                <button class="btn btn-primary" data-page="contact">Download PulseKey&trade;</button>
+                <button class="btn btn-outline" data-scroll="pk-features">See how it works</button>
+              </div>
+              <p class="hero__disclaimer">Not therapy. Not diagnosis. Not medical advice.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What is PulseKey -->
+      <section aria-labelledby="pk-what-heading">
+        <div class="container">
+          <p class="section-label">About PulseKey&trade;</p>
+          <h2 id="pk-what-heading">A 3-minute weekly window into your wellbeing</h2>
+          <div style="max-width: 680px; margin-top: 20px;">
+            <p style="font-size:1.05rem; color: var(--grey-text); line-height: 1.75;">PulseKey&trade; is a 3-minute weekly multimodal check-in combining voice, structured and free-form text, and optional drawing or handwriting. AI analysis across all three channels builds a personalized picture of how your mental wellness and stress management capacity shift over time, giving you actionable, non-diagnostic insights grounded in evidence.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Features -->
+      <section id="pk-features" aria-labelledby="pk-features-heading">
+        <div class="container">
+          <p class="section-label">Features</p>
+          <h2 id="pk-features-heading">Three modalities. <span class="underline-gradient">One complete picture.</span></h2>
+          <div class="feature-grid">
+
+            <article class="feature-card">
+              <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2"/>
+                <path d="M14 20 C14 17 17 14 20 14 C23 14 26 17 26 20 C26 23 23 26 20 26 C20 26 20 28 20 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="20" cy="32" r="1.5" fill="currentColor"/>
+              </svg>
+              <h3>Voice</h3>
+              <p>Speak a short phrase. AI analysis of your voice acoustics captures pitch, rhythm, and energy patterns that reflect your mental state in ways words often cannot. This channel is especially valuable for anyone whose stress does not show up in what they say.</p>
+            </article>
+
+            <article class="feature-card">
+              <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="6" y="10" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+                <line x1="11" y1="17" x2="29" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="11" y1="22" x2="24" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <h3>Text</h3>
+              <p>A structured question anchors each check-in, followed by a free-form space to write whatever is on your mind. Both are analyzed to add context and self-awareness to the picture.</p>
+            </article>
+
+            <article class="feature-card">
+              <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="6" y="6" width="28" height="28" rx="3" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 28 C16 22 20 24 24 18 C26 15 28 16 30 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h3>Drawing and handwriting</h3>
+              <p>An optional canvas captures drawing and handwriting as non-verbal expression. For neurodivergent individuals and anyone who processes stress visually, this modality catches signals that verbal tools miss entirely.</p>
+            </article>
+
+            <article class="feature-card">
+              <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <polyline points="4,30 10,20 16,24 22,14 28,20 34,12 38,16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="22" cy="14" r="3" fill="currentColor"/>
+              </svg>
+              <h3>Personal trends over time</h3>
+              <p>Three minutes a week builds a personal baseline. PulseKey&trade; tracks how your mental wellness signals change - not against a population norm, but against your own patterns.</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Why multimodal -->
+      <section class="why-multimodal" aria-labelledby="why-multi-heading">
+        <div class="container">
+          <div class="why-multimodal__inner">
+            <p class="section-label">Why multimodal?</p>
+            <h2 id="why-multi-heading">One channel is not enough</h2>
+            <p>Most wellness tools rely on one thing: what you say. PulseKey&trade; uses three channels. Voice acoustics, written reflection, and visual expression together produce a richer, more accurate signal than any single modality. This matters especially for the 1 in 5 people who identify as neurodivergent, many of whom express stress non-verbally. PulseKey&trade; is designed to hear all of it. PulseKey&trade;'s AI engine performs multimodal signal analysis across all three channels simultaneously, surfacing patterns that no single-channel tool can see.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- For Organizations (PulseKey page) -->
+      <section class="for-orgs" id="pk-orgs" aria-labelledby="pk-orgs-heading">
+        <div class="container">
+          <p class="section-label" style="color: var(--teal);">For Organizations</p>
+          <h2 id="pk-orgs-heading">Built for workplaces that take wellbeing seriously</h2>
+          <div style="margin-top: 32px; margin-bottom: 40px;">
+            <img src="For website PulseKey.png" alt="PulseKey diagram showing individual check-in flow on the left, privacy shield in the center, and aggregated team dashboard on the right" style="width: 100%; max-width: 960px; display: block; margin: 0 auto; border-radius: 12px;" />
+          </div>
+          <div style="max-width: 680px;">
+            <p>When PulseKey&trade; is deployed through an employer or pilot organization, leaders see aggregated, de-identified group-level mental wellness trends. Never individual check-ins, never individual mental health profiles. PulseKey&trade; is not a surveillance tool.</p>
+            <ul style="margin: 24px 0 32px;">
+              <li>Aggregated mental wellness trends across teams, not individual monitoring</li>
+              <li>Minimum group sizes enforced before any data is shown</li>
+              <li>Individual data never used for performance evaluation or employment decisions</li>
+            </ul>
+            <button class="btn btn-outline-teal" data-page="contact">Request a pilot</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Privacy -->
+      <section aria-labelledby="pk-privacy-heading">
+        <div class="container">
+          <p class="section-label">Data protection</p>
+          <h2 id="pk-privacy-heading">Your data, protected</h2>
+          <div class="privacy-grid">
+
+            <div class="privacy-item">
+              <p class="privacy-item__text">Data stored in Canada</p>
+            </div>
+
+            <div class="privacy-item">
+              <p class="privacy-item__text">Encrypted at rest with AES-256-GCM</p>
+            </div>
+
+            <div class="privacy-item">
+              <p class="privacy-item__text">Individual data never shared with employers without informed consent</p>
+            </div>
+
+            <div class="privacy-item">
+              <p class="privacy-item__text">You can delete everything, anytime</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- App store -->
+      <section class="appstore" aria-labelledby="pk-appstore-heading">
+        <div class="container">
+          <p class="section-label">Download</p>
+          <h2 id="pk-appstore-heading">Download free on iOS and Android</h2>
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="Download mentAImage on the App Store">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span class="store-badge__text">
+                <span class="store-badge__line1">Download on the</span>
+                <span class="store-badge__line2">App Store</span>
+              </span>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Get mentAImage on Google Play">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+              <span class="store-badge__text">
+                <span class="store-badge__line1">Get it on</span>
+                <span class="store-badge__line2">Google Play</span>
+              </span>
+            </a>
+          </div>
+          <p class="appstore__note">Download free on iOS and Android.</p>
+        </div>
+      </section>
+
+      <footer class="footer" role="contentinfo" aria-label="Site footer">
+        <div class="container">
+          <div class="footer__grid">
+            <div class="footer__brand">
+              <img
+                src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png"
+                alt="mentAImage"
+                class="footer__logo"
+                height="34"
+              />
+              <p class="footer__tagline">Preventive mental wellness for individuals and organizations. Not therapy. Not diagnosis. A smarter kind of support.</p>
+            </div>
+            <div>
+              <p class="footer__col-title">Product</p>
+              <ul class="footer__links">
+                <li><a class="footer__link-btn" href="https://mentaimage.com/pulsekey/">PulseKey&trade;</a></li>
+                <li><a class="footer__link-btn" href="https://mentaimage.com/monai/">Monai&trade;</a></li>
+                <li><a class="footer__link-btn" href="https://mentaimage.com/#home-for-orgs">For Organizations</a></li>
+                <li><button class="footer__link-btn" data-page="contact">Download</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Company</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="about">About</button></li>
+                <li><button class="footer__link-btn" data-page="contact">Contact</button></li>
+                <li><button class="footer__link-btn" data-page="contact">Request a Demo</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Legal</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="privacy">Privacy Policy</button></li>
+                <li><button class="footer__link-btn" data-page="terms">Terms of Service</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Language</p>
+              <ul class="footer__links">
+                <li><a href="#" aria-current="true">English</a></li>
+                <li><button class="footer__link-btn fr-footer-btn">Fran&ccedil;ais</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. All rights reserved.</p>
+            <p class="footer__disclaimer-line">mentAImage&trade; is a mental wellness platform, not therapy or crisis support. <button class="disclaimer-trigger">See full disclaimer.</button></p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /page-pulsekey -->
+
+
+    <!-- PAGE 3: MONAI -->
+    <div class="page-section" id="page-monai">
+
+      <!-- Hero -->
+      <section class="monai-hero" id="monai" aria-labelledby="monai-hero-heading">
+        <div class="container">
+          <div class="monai-hero__layout">
+            <div class="monai-hero__content">
+              <h1 id="monai-hero-heading"><span>Monai&trade;</span></h1>
+              <p class="hero__sub">An AI reflection and coping-skills companion. Not a therapist. Not a clinician. A structured presence for the space between check-ins.</p>
+              <div class="btn-group">
+                <button class="btn btn-primary" data-page="contact">Meet Monai&trade; in the app</button>
+              </div>
+              <p class="hero__disclaimer">Not therapy. Not diagnosis. Not a crisis service.</p>
+            </div>
+            <div class="monai-hero__character" aria-hidden="true">
+              <img src="Monai shadow clean.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What Monai does -->
+      <section aria-labelledby="monai-does-heading">
+        <div class="container">
+          <p class="section-label">What Monai&trade; does</p>
+          <h2 id="monai-does-heading">Reflection. Psychoeducation. Coping skills.</h2>
+          <div class="monai-cols">
+            <div class="monai-col">
+              <h3>Reflect</h3>
+              <p>Monai&trade; reads your PulseKey&trade; mental wellness trends and current check-in mental wellness signals to offer contextual reflections. It knows how you have been doing over time, not just today.</p>
+            </div>
+            <div class="monai-col">
+              <h3>Evidence-based resources</h3>
+              <p>Every suggestion Monai&trade; makes is grounded in peer-reviewed mental wellness and stress management research: breathing techniques, grounding exercises, cognitive reframing, and validated coping strategies. Monai&trade; does not draw from general internet content or commercial AI training data.</p>
+            </div>
+            <div class="monai-col">
+              <h3>Real-time support</h3>
+              <p>Monai&trade; is available between check-ins for on-the-go support. Feeling overwhelmed before a meeting? Monai&trade; can walk you through a validated 3-minute regulation exercise right then.</p>
+            </div>
+            <div class="monai-col">
+              <h3>Navigate</h3>
+              <p>When you need more than Monai&trade; can offer, Monai&trade; helps you find the right next step toward professional support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Monai diagram -->
+      <section aria-label="How Monai works diagram">
+        <div class="container" style="text-align: center;">
+          <img src="For Website- Monai (2).png" alt="Monai diagram showing inputs from PulseKey check-ins on the left, Monai companion in the center, and grounded conversations, practical support and progress tracking on the right" style="width: 100%; max-width: 800px; display: inline-block; border-radius: 12px;" />
+        </div>
+      </section>
+
+      <!-- What makes Monai different -->
+      <section class="monai-different" aria-labelledby="monai-diff-heading">
+        <div class="container">
+          <p class="section-label">What makes Monai&trade; different</p>
+          <h2 id="monai-diff-heading">Depth over breadth. Your data, not a script.</h2>
+          <div class="monai-different__grid">
+            <div class="monai-different__item">
+              <p>Monai&trade; is not a general-purpose conversational AI. It does not have opinions about the news, cannot help you write emails, and has not been trained on the entire internet. Behind Monai&trade; is a multimodal AI system that draws on your voice acoustics, written responses, and drawing signals together, not just your words. Monai&trade; knows one domain deeply: evidence-based mental wellness and stress management science. Every recommendation it makes traces back to a validated source.</p>
+            </div>
+            <div class="monai-different__item">
+              <p>Monai&trade; also has something most AI companions do not: your history. It can see your PulseKey&trade; mental wellness trends, notice when patterns are shifting, and offer support that is grounded in your actual data, not a generic script.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What Monai is NOT -->
+      <section class="not-section" aria-labelledby="monai-not-heading">
+        <div class="container">
+          <h2 id="monai-not-heading">Clear about what Monai&trade; is not</h2>
+          <div class="not-grid" role="list">
+            <div class="not-item" role="listitem">
+              <p class="not-item__text">Not a therapist or psychologist</p>
+            </div>
+            <div class="not-item" role="listitem">
+              <p class="not-item__text">Not a crisis service or emergency responder</p>
+            </div>
+            <div class="not-item" role="listitem">
+              <p class="not-item__text">Not a medical or clinical tool</p>
+            </div>
+            <div class="not-item" role="listitem">
+              <p class="not-item__text">Not a substitute for professional care</p>
+            </div>
+          </div>
+          <div class="crisis-callout" role="alert">
+            <p>If you are experiencing a crisis, thoughts of self-harm, or an emergency, <strong>do not rely on Monai&trade;</strong>. Call <strong>9-8-8</strong> (Canada suicide crisis support), call <strong>911</strong>, or go to the nearest emergency department.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Between sessions -->
+      <section class="between-sessions" aria-labelledby="between-heading">
+        <div class="container">
+          <div class="between-sessions__inner">
+            <p class="section-label">The space between</p>
+            <h2 id="between-heading">For the moments between professional care</h2>
+            <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75; margin-top: 20px;">Monai&trade; is not meant to replace your therapist, doctor, or counsellor. It is for the moments in between: when you want to reflect, practice a skill, or have a structured space to think.</p>
+            <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">If you are already working with a professional, Monai&trade; can help you prepare for appointments, practice what you are learning, and track how you are doing.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- App store -->
+      <section class="appstore appstore--light" aria-labelledby="monai-appstore-heading">
+        <div class="container">
+          <p class="section-label">Download</p>
+          <h2 id="monai-appstore-heading">Meet Monai&trade; in the app</h2>
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="Download mentAImage on the App Store">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span class="store-badge__text">
+                <span class="store-badge__line1">Download on the</span>
+                <span class="store-badge__line2">App Store</span>
+              </span>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Get mentAImage on Google Play">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+              <span class="store-badge__text">
+                <span class="store-badge__line1">Get it on</span>
+                <span class="store-badge__line2">Google Play</span>
+              </span>
+            </a>
+          </div>
+          <p class="appstore__note">Download free on iOS and Android.</p>
+        </div>
+      </section>
+
+      <footer class="footer" role="contentinfo" aria-label="Site footer">
+        <div class="container">
+          <div class="footer__grid">
+            <div class="footer__brand">
+              <img
+                src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png"
+                alt="mentAImage"
+                class="footer__logo"
+                height="34"
+              />
+              <p class="footer__tagline">Preventive mental wellness for individuals and organizations. Not therapy. Not diagnosis. A smarter kind of support.</p>
+            </div>
+            <div>
+              <p class="footer__col-title">Product</p>
+              <ul class="footer__links">
+                <li><a class="footer__link-btn" href="https://mentaimage.com/pulsekey/">PulseKey&trade;</a></li>
+                <li><a class="footer__link-btn" href="https://mentaimage.com/monai/">Monai&trade;</a></li>
+                <li><a class="footer__link-btn" href="https://mentaimage.com/#home-for-orgs">For Organizations</a></li>
+                <li><button class="footer__link-btn" data-page="contact">Download</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Company</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="about">About</button></li>
+                <li><button class="footer__link-btn" data-page="contact">Contact</button></li>
+                <li><button class="footer__link-btn" data-page="contact">Request a Demo</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Legal</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="privacy">Privacy Policy</button></li>
+                <li><button class="footer__link-btn" data-page="terms">Terms of Service</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Language</p>
+              <ul class="footer__links">
+                <li><a href="#" aria-current="true">English</a></li>
+                <li><button class="footer__link-btn fr-footer-btn">Fran&ccedil;ais</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. All rights reserved.</p>
+            <p class="footer__disclaimer-line">mentAImage&trade; is a mental wellness platform, not therapy or crisis support. <button class="disclaimer-trigger">See full disclaimer.</button></p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /page-monai -->
+
+    <!-- PAGE 4: ABOUT -->
+    <div class="page-section" id="page-about">
+
+      <section style="background: #081e2f; padding: calc(var(--nav-h) + clamp(40px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);" aria-labelledby="about-hero-heading">
+        <div class="container">
+          <p class="section-label">Our Story</p>
+          <h1 id="about-hero-heading" style="color: #ffffff;">Built at the intersection of <span class="underline-gradient">medicine, AI, and human behavior</span></h1>
+          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.75; max-width: 680px; margin-top: 20px;">Most wellness tools ask you how you feel and leave it at that. We knew that wasn&rsquo;t enough. mentAImage&trade; was built to capture what words alone cannot, and to give everyone a clearer picture of how they are really doing.</p>
+        </div>
+      </section>
+
+      <section style="background: #ffffff;" aria-labelledby="about-founder-heading">
+        <div class="container">
+          <p class="section-label">The Founder</p>
+          <div class="about-founder-layout">
+            <div class="about-founder-photo">
+              <img src="https://mentaimage.com/wp-content/uploads/2025/02/Ghadakzadeh.png" alt="Dr. Saber Ghadakzadeh, MD-PhD, founder of mentAImage" style="width:100%; max-width:280px; height:auto; border-radius:8px; display:block;" />
+            </div>
+            <div>
+              <h2 id="about-founder-heading">Dr. Saber Ghadakzadeh, MD-PhD</h2>
+              <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75; margin-top: 16px;">Dr. Ghadakzadeh is a physician scientist and entrepreneur with an MD, MSc, and PhD. Over 25 years, he has worked across clinical medicine, academic research, genetic engineering, nanotechnology, and AI in healthcare. He is the founder of mentAImage&trade; and PulseKey&trade;.</p>
+              <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">Working across hospitals, research labs, and organizations, he kept noticing the same thing: stress and burnout were building up long before anyone knew. Surveys were not working. People were afraid to speak honestly. And the signals that mattered most, voice, expression, non-verbal behavior, were never captured at all.</p>
+              <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">He built mentAImage&trade; to fill that gap. Not another survey. Not another chatbot that asks how you feel. A multimodal system that listens, observes, and understands, and keeps everything private by design.</p>
+            </div>
+          </div>
+          <blockquote class="about-pull-quote">&ldquo;If someone doesn&rsquo;t understand something, maybe it&rsquo;s not being explained in the right way. That philosophy shaped everything we built.&rdquo;</blockquote>
+        </div>
+      </section>
+
+      <section style="background: #F2EDE3;" aria-labelledby="about-why-heading">
+        <div class="container">
+          <p class="section-label">Why mentAImage&trade;</p>
+          <h2 id="about-why-heading">The problems we set out to solve</h2>
+          <p style="color: var(--grey-text); font-size: 1.05rem; line-height: 1.75; max-width: 720px; margin-top: 16px;">Burnout is not a personal failure. It builds upstream, quietly, over months. By the time it shows up as a disability claim or a resignation, it is already too late. We built tools to surface those signals earlier, for everyone.</p>
+          <div class="grid-3">
+            <div class="card"><h3>Surveys do not work</h3><p>People are afraid to speak up. Engagement is low because people fear being targeted. We built a check-in system people can trust, with individual data that never reaches employers without informed consent.</p></div>
+            <div class="card"><h3>One channel is not enough</h3><p>What someone writes in a text box only captures what they can articulate. Voice, drawing, and writing together reveal patterns that words alone cannot. Our tools are multimodal by design.</p></div>
+            <div class="card"><h3>Wellness should not depend on one person</h3><p>A passionate HR manager who leaves takes all the progress with them. We help organizations build wellness into their systems, their hiring, their onboarding, their processes, so it outlasts any individual.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: #ffffff;" aria-labelledby="about-who-heading">
+        <div class="container">
+          <p class="section-label">Who we serve</p>
+          <h2 id="about-who-heading">Built for everyone. Especially those the standard tools miss.</h2>
+          <div style="max-width: 720px; margin-top: 20px;">
+            <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">mentAImage&trade; is designed for anyone who experiences stress. That includes every person in every workplace. We are particularly effective for neurodivergent individuals, not because they need a special tool, but because standard wellness tools were not built with them in mind.</p>
+            <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">Neurodivergent people often communicate differently, process stress differently, and express themselves through channels that conventional check-ins never capture. Our multimodal approach, combining voice acoustics, written reflection, and creative expression, picks up signals that a text box simply cannot. That makes mentAImage&trade; more accurate for everyone, and genuinely useful for those who have been invisible to other tools.</p>
+            <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">Supporting neurodivergent individuals well is also not a one-way street. It requires building awareness across entire teams, not just accommodating one person. Our organizational tools help leaders understand their teams, not just the individuals who feel safe enough to disclose.</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: #081e2f;" aria-labelledby="about-cta-heading">
+        <div class="container">
+          <h2 id="about-cta-heading" style="color: #ffffff;">Want to learn more or get involved?</h2>
+          <p style="color: rgba(255,255,255,0.78); font-size: 1.05rem; line-height: 1.75; max-width: 600px; margin-top: 16px; margin-bottom: 32px;">Whether you are an individual, a researcher, an employer, or a clinician, we would love to hear from you.</p>
+          <button class="btn btn-primary" data-page="contact">Get in Touch</button>
+        </div>
+      </section>
+
+    </div><!-- /page-about -->
+
+    <!-- PAGE 5: CONTACT -->
+    <div class="page-section" id="page-contact">
+
+      <section style="background: #081e2f; padding: calc(var(--nav-h) + clamp(40px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);" aria-labelledby="contact-hero-heading">
+        <div class="container">
+          <p class="section-label">Get in Touch</p>
+          <h1 id="contact-hero-heading" style="color: #ffffff;">Let&rsquo;s talk</h1>
+          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.75; max-width: 600px; margin-top: 20px;">Whether you&rsquo;re an individual, a clinician, an employer, or a researcher, we&rsquo;d love to hear from you.</p>
+        </div>
+      </section>
+
+      <section style="background: #ffffff;" aria-labelledby="contact-form-heading">
+        <div class="container">
+          <div class="contact-grid">
+
+            <div>
+              <p class="section-label">Contact</p>
+              <h2 id="contact-form-heading">Send us a message</h2>
+              <form action="https://formsubmit.co/info@mentaimage.com" method="POST" style="margin-top: 28px; display: flex; flex-direction: column; gap: 18px;" onsubmit="handleContactForm(event)">
+                <input type="hidden" name="_subject" value="New message from mentAImage website" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value="https://misty-moon-ffd8.saber-4e4.workers.dev/?p=contact&sent=1" />
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="contact-name">Full name <span style="color:#c0392b;">*</span></label>
+                  <input id="contact-name" name="name" type="text" required placeholder="Your name" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); outline: none;" />
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="contact-email">Email <span style="color:#c0392b;">*</span></label>
+                  <input id="contact-email" name="email" type="email" required placeholder="you@example.com" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); outline: none;" />
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="contact-type">I am a&hellip;</label>
+                  <select id="contact-type" name="type" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); background: #fff; outline: none;">
+                    <option value="">Select one</option>
+                    <option>Individual / potential user</option>
+                    <option>Employer / HR leader</option>
+                    <option>Clinician or researcher</option>
+                    <option>Investor or partner</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="contact-message">Message <span style="color:#c0392b;">*</span></label>
+                  <textarea id="contact-message" name="message" required rows="5" placeholder="How can we help?" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); resize: vertical; outline: none;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message</button>
+                <p id="contact-success" style="display:none; color: var(--teal); font-weight: 600;">Thank you, we&rsquo;ll be in touch shortly.</p>
+              </form>
+            </div>
+
+            <div style="padding-top: 16px;">
+              <p class="section-label">Other ways to reach us</p>
+              <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 28px;">
+                <div>
+                  <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Email</p>
+                  <a href="mailto:info@mentaimage.com" style="color: var(--teal);">info@mentaimage.com</a>
+                </div>
+                <div>
+                  <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Based in</p>
+                  <p style="color: var(--grey-text);">Montreal, Quebec, Canada</p>
+                </div>
+                <div>
+                  <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Partnerships &amp; pilots</p>
+                  <p style="color: var(--grey-text);">Interested in a subsidized research pilot? We work with organizations through the Primo-Adoptants and ISC programs. <button class="btn btn-primary" data-page="home" style="margin-top: 12px; display: block;">Learn more</button></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /page-contact -->
+
+    <!-- PAGE 6: PRIVACY POLICY (website visitors) -->
+    <div class="page-section" id="page-privacy">
+      <section style="background:#081e2f; padding: calc(var(--nav-h) + clamp(32px,4vw,56px)) 0 clamp(32px,4vw,56px);" aria-labelledby="privacy-heading">
+        <div class="container">
+          <h1 id="privacy-heading" style="color:#fff;">Privacy Policy</h1>
+          <p style="color:rgba(255,255,255,0.7); margin-top:8px; font-size:0.9rem;">Last updated: June 13, 2026 &middot; Effective: June 13, 2026</p>
+        </div>
+      </section>
+      <section style="background:#fff;">
+        <div class="container" style="max-width:780px;">
+          <div class="legal-body">
+            <p>This Privacy Policy applies to the mentAImage.com website. For the privacy policy governing the mentAImage mobile application, please see the in-app policy. MentaImage Inc. ("MentaImage", "we", "us") is based in Quebec, Canada.</p>
+            <h2>1. What we collect on this website</h2>
+            <p>This website does not use cookies, tracking pixels, or analytics scripts. The only personal information we collect is what you voluntarily submit through the contact form: your name, email address, your role (optional), and your message.</p>
+            <h2>2. How we use contact form submissions</h2>
+            <p>Contact form submissions are delivered to our team at <a href="mailto:info@mentaimage.com" style="color:var(--teal);">info@mentaimage.com</a> via FormSubmit.co, our contact form processor. We use this information solely to respond to your inquiry. We do not add you to mailing lists or share your contact details with third parties without your consent.</p>
+            <h2>3. FormSubmit.co</h2>
+            <p>Contact form data is processed by FormSubmit.co to deliver your message to us. FormSubmit.co is a third-party service; their privacy practices apply to the transmission of your submission. We do not store form submissions on this website.</p>
+            <h2>4. No tracking or analytics</h2>
+            <p>This website does not use Google Analytics, Meta Pixel, or any other tracking or behavioural analytics tool. We do not track your browsing behaviour, device fingerprint, or location.</p>
+            <h2>5. Your rights (Quebec Law 25 / PIPEDA)</h2>
+            <p>You have the right to access, correct, or request deletion of personal information we hold about you. To exercise these rights, email <a href="mailto:privacy@mentaimage.com" style="color:var(--teal);">privacy@mentaimage.com</a>. We respond within 30 days.</p>
+            <h2>6. Contact</h2>
+            <p>Privacy Officer, MentaImage Inc., Quebec, Canada<br><a href="mailto:privacy@mentaimage.com" style="color:var(--teal);">privacy@mentaimage.com</a></p>
+          </div>
+        </div>
+      </section>
+    </div><!-- /page-privacy -->
+
+    <!-- PAGE 7: TERMS OF USE (website visitors) -->
+    <div class="page-section" id="page-terms">
+      <section style="background:#081e2f; padding: calc(var(--nav-h) + clamp(32px,4vw,56px)) 0 clamp(32px,4vw,56px);" aria-labelledby="terms-heading">
+        <div class="container">
+          <h1 id="terms-heading" style="color:#fff;">Terms of Use</h1>
+          <p style="color:rgba(255,255,255,0.7); margin-top:8px; font-size:0.9rem;">Last updated: June 13, 2026 &middot; Effective: June 13, 2026</p>
+        </div>
+      </section>
+      <section style="background:#fff;">
+        <div class="container" style="max-width:780px;">
+          <div class="legal-body">
+            <p>These Terms of Use govern your use of the mentAImage.com website (the "Site"). By visiting the Site, you agree to these terms. These terms do not govern the mentAImage mobile application; the app has its own Terms of Service.</p>
+            <h2>1. Informational purposes only</h2>
+            <p>The content on this Site is for general informational purposes only. Nothing on this Site constitutes medical advice, mental health treatment, psychotherapy, diagnosis, or clinical assessment. mentAImage&trade;, PulseKey&trade;, and Monai&trade; are mental wellness tools, not therapy and not medical devices.</p>
+            <h2>2. Not crisis support</h2>
+            <p><strong>This website is not a crisis service.</strong> If you are in immediate danger or experiencing a mental health emergency, contact emergency services: call or text <strong>9-8-8</strong> (Canada suicide crisis support, 24/7), call <strong>911</strong>, or go to the nearest emergency department.</p>
+            <h2>3. Intellectual property</h2>
+            <p>All content on this Site, including text, images, logos, and design, is the property of MentaImage Inc. and is protected by Canadian and international intellectual property laws. mentAImage&trade;, PulseKey&trade;, and Monai&trade; are trademarks of MentaImage Inc.</p>
+            <h2>4. Accuracy of content</h2>
+            <p>We make reasonable efforts to keep website content accurate and up to date, but we do not warrant the completeness or accuracy of any information on this Site.</p>
+            <h2>5. Third-party links</h2>
+            <p>This Site may contain links to third-party websites, including the Apple App Store and Google Play. We are not responsible for the content or practices of those sites.</p>
+            <h2>6. Governing law</h2>
+            <p>These Terms are governed by the laws of the Province of Quebec and the federal laws of Canada. Disputes are subject to the exclusive jurisdiction of the courts of Montreal, Quebec.</p>
+            <h2>7. Contact</h2>
+            <p>MentaImage Inc., Quebec, Canada<br><a href="mailto:info@mentaimage.com" style="color:var(--teal);">info@mentaimage.com</a></p>
+          </div>
+        </div>
+      </section>
+    </div><!-- /page-terms -->
+
+    <!-- ============================================================
+         FRENCH PAGES (FR)
+         ============================================================ -->
+
+    <!-- PAGE HOME-FR -->
+    <div class="page-section" id="page-home-fr">
+      <section class="hero" id="home-fr">
+        <div class="container">
+          <div class="hero__layout">
+            <div class="hero__content">
+              <h1>B&acirc;tissez votre mieux-&ecirc;tre mental. <span class="underline-gradient">G&eacute;rez le stress</span> avant qu&rsquo;il ne devienne &eacute;puisement.</h1>
+              <p class="hero__sub">L&rsquo;Organisation mondiale de la sant&eacute; d&eacute;finit l&rsquo;&eacute;puisement professionnel comme un stress chronique au travail qui n&rsquo;a pas &eacute;t&eacute; g&eacute;r&eacute; avec succ&egrave;s. mentAImage&trade; aide les individus et les organisations &agrave; agir plus t&ocirc;t, gr&acirc;ce &agrave; de courts bilans multimodaux analys&eacute;s par IA.</p>
+              <div class="btn-group">
+                <button class="btn btn-primary" data-page="home-fr" data-scroll="home-fr-individuals">Pour les individus</button>
+                <button class="btn btn-outline" data-page="home-fr" data-scroll="home-fr-orgs">Pour les organisations</button>
+              </div>
+              <p class="hero__disclaimer">Pas de th&eacute;rapie. Pas de diagnostic. Pas de surveillance.</p>
+            </div>
+            <div class="hero__image-wrap">
+              <img src="https://mentaimage.com/wp-content/uploads/2026/06/burnout-hero.png" alt="" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="values" aria-labelledby="fr-values-heading">
+        <div class="container">
+          <p class="section-label">Pourquoi mentAImage&trade;</p>
+          <h2 id="fr-values-heading">Con&ccedil;u pour les individus et les organisations qui les soutiennent</h2>
+          <div class="grid-3" role="list">
+            <article class="card" role="listitem">
+              <h3>Pour les individus</h3>
+              <p>Trois minutes par semaine. Des bilans voix, texte et dessin analys&eacute;s par IA pour dresser un portrait personnalis&eacute; de votre mieux-&ecirc;tre mental et vous aider &agrave; mieux g&eacute;rer le stress au fil du temps.</p>
+            </article>
+            <article class="card" role="listitem">
+              <h3>Pour les organisations</h3>
+              <p>Des tendances d&rsquo;&eacute;quipe agr&eacute;g&eacute;es et respectueuses de la vie priv&eacute;e qui aident les dirigeants &agrave; identifier les sch&eacute;mas de mieux-&ecirc;tre et &agrave; agir, sans jamais surveiller les individus.</p>
+            </article>
+            <article class="card" role="listitem">
+              <h3>La confidentialit&eacute; avant tout</h3>
+              <p>Vos donn&eacute;es de bilan ne sont jamais vendues. Les employeurs ne voient jamais le contenu individuel. Toutes les donn&eacute;es sensibles sont chiffr&eacute;es et stock&eacute;es au Canada.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="home-fr-individuals" style="background: var(--white);">
+        <div class="container">
+          <p class="section-label">Pour les individus</p>
+          <h2>Vos tendances de mieux-&ecirc;tre mental, entre vos mains</h2>
+          <div style="margin-top: 32px;">
+            <p style="font-size: 1.05rem; color: var(--grey-text); line-height: 1.75;">PulseKey&trade; est con&ccedil;u pour les individus qui veulent prendre un r&ocirc;le actif dans leur mieux-&ecirc;tre mental avant que le stress ne devienne &eacute;puisement. Trois minutes par semaine vous donnent une fen&ecirc;tre personnelle sur la fa&ccedil;on dont le stress s&rsquo;accumule, en utilisant des signaux vocaux, textuels et visuels qui ensemble donnent un portrait plus complet qu&rsquo;une seule mesure.</p>
+            <p style="font-size: 1.05rem; color: var(--grey-text); line-height: 1.75;">Monai&trade;, votre compagnon de r&eacute;flexion IA, s&rsquo;appuie sur votre historique PulseKey&trade; pour offrir un soutien et des strat&eacute;gies d&rsquo;adaptation fond&eacute;es sur des donn&eacute;es probantes, adapt&eacute;es &agrave; vos sch&eacute;mas.</p>
+            <div style="margin-top: 28px;">
+              <button class="btn btn-primary btn-primary--solid" data-page="pulsekey-fr">Explorer PulseKey&trade;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="for-orgs-home" id="home-fr-orgs">
+        <div class="container">
+          <p class="section-label">Pour les organisations</p>
+          <h2>Con&ccedil;u pour les organisations qui veulent <span class="underline-gradient">agir sur le mieux-&ecirc;tre mental</span>, pas seulement le mesurer</h2>
+          <p class="for-orgs-home__intro">L&rsquo;&eacute;puisement professionnel est le r&eacute;sultat d&eacute;fini par l&rsquo;OMS d&rsquo;un stress chronique au travail non g&eacute;r&eacute;. C&rsquo;est la principale cause des r&eacute;clamations d&rsquo;invalidit&eacute; de longue dur&eacute;e. Les employeurs utilisant PulseKey&trade; obtiennent des tendances d&rsquo;&eacute;quipe agr&eacute;g&eacute;es et d&eacute;-identifi&eacute;es pour agir avant que l&rsquo;&eacute;puisement n&rsquo;apparaisse dans un rapport de r&eacute;clamation.</p>
+          <div class="stat-cards">
+            <div class="stat-card">
+              <div class="stat-card__number">300&nbsp;G$+<br><span style="font-size:1rem;">par an</span></div>
+              <p class="stat-card__label">co&ucirc;t estim&eacute; de l&rsquo;&eacute;puisement en Am&eacute;rique du Nord, li&eacute; &agrave; l&rsquo;absent&eacute;isme, le pr&eacute;sent&eacute;isme et le roulement<sup style="color:var(--teal);">1</sup></p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__number">1 sur 5<br><span style="font-size:1rem;">employ&eacute;s</span></div>
+              <p class="stat-card__label">estim&eacute;s neurodivers, souvent avec des styles de communication non verbaux que les outils actuels ne captent pas<sup style="color:var(--teal);">2</sup></p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__number">#1<br><span style="font-size:1rem;">r&eacute;clamation</span></div>
+              <p class="stat-card__label">La sant&eacute; mentale est la principale cause de r&eacute;clamations d&rsquo;invalidit&eacute; de longue dur&eacute;e au Canada<sup style="color:var(--teal);">3</sup></p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__number">50&ndash;200&nbsp;%<br><span style="font-size:1rem;">du salaire</span></div>
+              <p class="stat-card__label">co&ucirc;t pour remplacer un employ&eacute; perdu &agrave; cause de l&rsquo;&eacute;puisement, avant les pertes de savoir institutionnel<sup style="color:var(--teal);">4</sup></p>
+            </div>
+          </div>
+          <p class="privacy-note">Aucune donn&eacute;e individuelle d&rsquo;employ&eacute; n&rsquo;est partag&eacute;e avec les employeurs. Les organisations ne voient que des tendances d&rsquo;&eacute;quipe agr&eacute;g&eacute;es.</p>
+          <button class="btn btn-primary" data-page="contact-fr">Demander un projet pilote</button>
+        </div>
+      </section>
+
+      <section class="position">
+        <div class="container">
+          <div class="position__inner">
+            <p class="section-label">Notre position</p>
+            <h2>Pas de th&eacute;rapie. Un soutien plus intelligent.</h2>
+            <p>Nous n&rsquo;essayons pas d&rsquo;automatiser la th&eacute;rapie. Nous essayons d&rsquo;emp&ecirc;cher la souffrance &eacute;vitable de rester invisible jusqu&rsquo;&agrave; ce qu&rsquo;elle devienne une crise clinique.</p>
+            <p>mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental pr&eacute;ventif. PulseKey&trade; vous donne une fen&ecirc;tre non diagnostique sur vos sch&eacute;mas de mieux-&ecirc;tre. Monai&trade; offre r&eacute;flexion, psycho&eacute;ducation et soutien aux strat&eacute;gies d&rsquo;adaptation. Ni l&rsquo;un ni l&rsquo;autre ne remplace les soins professionnels.</p>
+            <button class="position__link disclaimer-trigger">Lire notre position compl&egrave;te sur l&rsquo;IA et la sant&eacute; mentale</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="who-built">
+        <div class="container">
+          <div class="who-built__inner">
+            <p class="section-label">L&rsquo;&eacute;quipe</p>
+            <h2>Construit par une &eacute;quipe multidisciplinaire</h2>
+            <p>mentAImage&trade; a &eacute;t&eacute; fond&eacute; par un m&eacute;decin-chercheur avec plus de 25 ans &agrave; l&rsquo;intersection de la m&eacute;decine, de l&rsquo;IA et du comportement humain. La plateforme est d&eacute;velopp&eacute;e par une &eacute;quipe d&rsquo;ing&eacute;nieurs en IA et apprentissage automatique, de scientifiques comportementaux et de chercheurs en sant&eacute; mentale.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="appstore" id="app-download-fr">
+        <div class="container">
+          <p class="section-label">T&eacute;l&eacute;charger</p>
+          <h2>T&eacute;l&eacute;chargez gratuitement sur iOS et Android</h2>
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="T&eacute;l&eacute;charger mentAImage sur l&rsquo;App Store">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span class="store-badge__text"><span class="store-badge__line1">T&eacute;l&eacute;charger sur</span><span class="store-badge__line2">App Store</span></span>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Obtenir mentAImage sur Google Play">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+              <span class="store-badge__text"><span class="store-badge__line1">Obtenir sur</span><span class="store-badge__line2">Google Play</span></span>
+            </a>
+          </div>
+          <p class="appstore__note">T&eacute;l&eacute;chargez gratuitement sur iOS et Android.</p>
+        </div>
+      </section>
+
+      <footer class="footer" role="contentinfo">
+        <div class="container">
+          <div class="footer__grid">
+            <div class="footer__brand">
+              <img src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png" alt="mentAImage" class="footer__logo" height="34" />
+              <p class="footer__tagline">Mieux-&ecirc;tre mental pr&eacute;ventif pour les individus et les organisations. Pas de th&eacute;rapie. Pas de diagnostic. Un soutien plus intelligent.</p>
+            </div>
+            <div>
+              <p class="footer__col-title">Produit</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="pulsekey-fr">PulseKey&trade;</button></li>
+                <li><button class="footer__link-btn" data-page="monai-fr">Monai&trade;</button></li>
+                <li><button class="footer__link-btn" data-page="home-fr" data-scroll="home-fr-orgs">Pour les organisations</button></li>
+                <li><a class="footer__link-btn" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank">T&eacute;l&eacute;charger</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Compagnie</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="about-fr">&Agrave; propos</button></li>
+                <li><button class="footer__link-btn" data-page="contact-fr">Contact</button></li>
+                <li><button class="footer__link-btn" data-page="contact-fr">Demander une d&eacute;mo</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">L&eacute;gal</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="privacy-fr">Politique de confidentialit&eacute;</button></li>
+                <li><button class="footer__link-btn" data-page="terms-fr">Conditions d&rsquo;utilisation</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Langue</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn en-lang-btn">English</button></li>
+                <li><a href="#" aria-current="true">Fran&ccedil;ais</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. Tous droits r&eacute;serv&eacute;s.</p>
+            <p class="footer__disclaimer-line">mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental, pas de th&eacute;rapie. <button class="disclaimer-trigger">Voir la clause compl&egrave;te.</button></p>
+          </div>
+        </div>
+      </footer>
+    </div><!-- /page-home-fr -->
+
+    <!-- PAGE PULSEKEY-FR -->
+    <div class="page-section" id="page-pulsekey-fr">
+      <section class="pk-hero" id="pulsekey-fr">
+        <div class="container">
+          <div class="pk-hero__layout">
+            <div class="pk-hero__content">
+              <h1>PulseKey&trade;</h1>
+              <p class="hero__sub">Un bilan structur&eacute; de mieux-&ecirc;tre mental qui vous aide &agrave; b&acirc;tir de meilleures habitudes de gestion du stress au fil du temps, par trois canaux, pas seulement un.</p>
+              <div class="btn-group">
+                <a class="btn btn-primary" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener">T&eacute;l&eacute;charger PulseKey&trade;</a>
+                <button class="btn btn-outline" data-scroll="pk-fr-features">Voir comment &ccedil;a fonctionne</button>
+              </div>
+              <p class="hero__disclaimer">Pas de th&eacute;rapie. Pas de diagnostic. Pas de conseil m&eacute;dical.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <p class="section-label">&Agrave; propos de PulseKey&trade;</p>
+          <h2>Une fen&ecirc;tre hebdomadaire de 3 minutes sur votre mieux-&ecirc;tre</h2>
+          <div style="max-width: 680px; margin-top: 20px;">
+            <p style="font-size:1.05rem; color: var(--grey-text); line-height: 1.75;">PulseKey&trade; est un bilan multimodal hebdomadaire de 3 minutes combinant voix, texte structur&eacute; et libre, et dessin optionnel. L&rsquo;analyse IA &agrave; travers les trois canaux d&eacute;veloppe un portrait personnalis&eacute; de votre mieux-&ecirc;tre mental.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="pk-fr-features">
+        <div class="container">
+          <p class="section-label">Fonctionnalit&eacute;s</p>
+          <h2>Trois modalit&eacute;s. <span class="underline-gradient">Un portrait complet.</span></h2>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2"/><path d="M14 20 C14 17 17 14 20 14 C23 14 26 17 26 20 C26 23 23 26 20 26 C20 26 20 28 20 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="32" r="1.5" fill="currentColor"/></svg>
+              <h3>Voix</h3>
+              <p>Prononcez une courte phrase. L&rsquo;analyse IA de vos acoustiques vocales capte les sch&eacute;mas de hauteur, rythme et &eacute;nergie qui refl&egrave;tent votre &eacute;tat mental d&rsquo;une fa&ccedil;on que les mots seuls ne peuvent pas.</p>
+            </article>
+            <article class="feature-card">
+              <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="6" y="10" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2"/><line x1="11" y1="17" x2="29" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="22" x2="24" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <h3>Texte</h3>
+              <p>Une question structur&eacute;e ancre chaque bilan, suivie d&rsquo;un espace libre pour &eacute;crire ce qui vous pr&eacute;occupe. Les deux sont analys&eacute;s pour enrichir le portrait.</p>
+            </article>
+            <article class="feature-card">
+              <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 28 C16 22 20 24 24 18 C26 15 28 16 30 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <h3>Dessin et &eacute;criture manuscrite</h3>
+              <p>Un canevas optionnel capte le dessin et l&rsquo;&eacute;criture comme expression non verbale. Cette modalit&eacute; capte des signaux que les outils verbaux ratent enti&egrave;rement.</p>
+            </article>
+            <article class="feature-card">
+              <svg class="feature-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><polyline points="4,30 10,20 16,24 22,14 28,20 34,12 38,16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="14" r="3" fill="currentColor"/></svg>
+              <h3>Tendances personnelles au fil du temps</h3>
+              <p>Trois minutes par semaine b&acirc;tissent une base personnelle. PulseKey&trade; suit l&rsquo;&eacute;volution de vos signaux de mieux-&ecirc;tre, pas par rapport &agrave; une norme de population, mais par rapport &agrave; vos propres sch&eacute;mas.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-multimodal">
+        <div class="container">
+          <div class="why-multimodal__inner">
+            <p class="section-label">Pourquoi multimodal?</p>
+            <h2>Un seul canal ne suffit pas</h2>
+            <p>La plupart des outils de mieux-&ecirc;tre reposent sur une chose: ce que vous dites. PulseKey&trade; utilise trois canaux. Les acoustiques vocales, la r&eacute;flexion &eacute;crite et l&rsquo;expression visuelle ensemble produisent un signal plus riche et plus pr&eacute;cis qu&rsquo;une seule modalit&eacute;. Cela est particuli&egrave;rement important pour les personnes neurodiverses, dont beaucoup expriment le stress non verbalement.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="for-orgs" id="pk-fr-orgs">
+        <div class="container">
+          <p class="section-label" style="color: var(--teal);">Pour les organisations</p>
+          <h2>Con&ccedil;u pour les milieux de travail qui prennent le mieux-&ecirc;tre au s&eacute;rieux</h2>
+          <div style="margin-top: 32px; margin-bottom: 16px;">
+            <img src="For website PulseKey.png" alt="Sch&eacute;ma PulseKey montrant le flux individuel &agrave; gauche, le bouclier de confidentialit&eacute; au centre et le tableau de bord d&rsquo;&eacute;quipe agr&eacute;g&eacute; &agrave; droite" style="width: 100%; max-width: 960px; display: block; margin: 0 auto; border-radius: 12px;" />
+            <p style="font-size: 0.85rem; color: var(--grey-text); margin-top: 10px;">De gauche &agrave; droite&nbsp;: bilan individuel &rarr; confidentialit&eacute; par conception &rarr; tendances agr&eacute;g&eacute;es pour l&rsquo;organisation. Aucune donn&eacute;e individuelle n&rsquo;est partag&eacute;e.</p>
+          </div>
+          <div style="max-width: 680px;">
+            <p>Lorsque PulseKey&trade; est d&eacute;ploy&eacute; par un employeur, les dirigeants voient des tendances de mieux-&ecirc;tre mental de groupe agr&eacute;g&eacute;es et d&eacute;-identifi&eacute;es. Jamais de bilans individuels. PulseKey&trade; n&rsquo;est pas un outil de surveillance.</p>
+            <ul style="margin: 24px 0 32px;">
+              <li>Tendances agr&eacute;g&eacute;es, pas de surveillance individuelle</li>
+              <li>Tailles de groupe minimales appliqu&eacute;es avant affichage des donn&eacute;es</li>
+              <li>Donn&eacute;es individuelles jamais utilis&eacute;es pour l&rsquo;&eacute;valuation de performance</li>
+            </ul>
+            <button class="btn btn-outline-teal" data-page="contact-fr">Demander un projet pilote</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <p class="section-label">Protection des donn&eacute;es</p>
+          <h2>Vos donn&eacute;es, prot&eacute;g&eacute;es</h2>
+          <div class="privacy-grid">
+            <div class="privacy-item"><p class="privacy-item__text">Donn&eacute;es stock&eacute;es au Canada</p></div>
+            <div class="privacy-item"><p class="privacy-item__text">Chiffrement au repos avec AES-256-GCM</p></div>
+            <div class="privacy-item"><p class="privacy-item__text">Donn&eacute;es individuelles jamais partag&eacute;es avec les employeurs sans consentement &eacute;clair&eacute;</p></div>
+            <div class="privacy-item"><p class="privacy-item__text">Vous pouvez tout supprimer, en tout temps</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="appstore">
+        <div class="container">
+          <p class="section-label">T&eacute;l&eacute;charger</p>
+          <h2>T&eacute;l&eacute;chargez gratuitement sur iOS et Android</h2>
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="T&eacute;l&eacute;charger mentAImage sur l&rsquo;App Store">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span class="store-badge__text"><span class="store-badge__line1">T&eacute;l&eacute;charger sur</span><span class="store-badge__line2">App Store</span></span>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Obtenir mentAImage sur Google Play">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+              <span class="store-badge__text"><span class="store-badge__line1">Obtenir sur</span><span class="store-badge__line2">Google Play</span></span>
+            </a>
+          </div>
+          <p class="appstore__note">T&eacute;l&eacute;chargez gratuitement sur iOS et Android.</p>
+        </div>
+      </section>
+
+      <footer class="footer" role="contentinfo">
+        <div class="container">
+          <div class="footer__grid">
+            <div class="footer__brand">
+              <img src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png" alt="mentAImage" class="footer__logo" height="34" />
+              <p class="footer__tagline">Mieux-&ecirc;tre mental pr&eacute;ventif pour les individus et les organisations. Pas de th&eacute;rapie. Pas de diagnostic. Un soutien plus intelligent.</p>
+            </div>
+            <div>
+              <p class="footer__col-title">Produit</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="pulsekey-fr">PulseKey&trade;</button></li>
+                <li><button class="footer__link-btn" data-page="monai-fr">Monai&trade;</button></li>
+                <li><button class="footer__link-btn" data-page="home-fr" data-scroll="home-fr-orgs">Pour les organisations</button></li>
+                <li><a class="footer__link-btn" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank">T&eacute;l&eacute;charger</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Compagnie</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="about-fr">&Agrave; propos</button></li>
+                <li><button class="footer__link-btn" data-page="contact-fr">Contact</button></li>
+                <li><button class="footer__link-btn" data-page="contact-fr">Demander une d&eacute;mo</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">L&eacute;gal</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="privacy-fr">Politique de confidentialit&eacute;</button></li>
+                <li><button class="footer__link-btn" data-page="terms-fr">Conditions d&rsquo;utilisation</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Langue</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn en-lang-btn">English</button></li>
+                <li><a href="#" aria-current="true">Fran&ccedil;ais</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. Tous droits r&eacute;serv&eacute;s.</p>
+            <p class="footer__disclaimer-line">mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental, pas de th&eacute;rapie. <button class="disclaimer-trigger">Voir la clause compl&egrave;te.</button></p>
+          </div>
+        </div>
+      </footer>
+    </div><!-- /page-pulsekey-fr -->
+
+    <!-- PAGE MONAI-FR -->
+    <div class="page-section" id="page-monai-fr">
+      <section class="monai-hero" id="monai-fr">
+        <div class="container">
+          <div class="monai-hero__layout">
+            <div class="monai-hero__content">
+              <h1><span>Monai&trade;</span></h1>
+              <p class="hero__sub">Un compagnon IA de r&eacute;flexion et de strat&eacute;gies d&rsquo;adaptation. Pas un th&eacute;rapeute. Pas un clinicien. Une pr&eacute;sence structur&eacute;e pour l&rsquo;espace entre les bilans.</p>
+              <div class="btn-group">
+                <a class="btn btn-primary" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener">Rencontrer Monai&trade; dans l&rsquo;application</a>
+              </div>
+              <p class="hero__disclaimer">Pas de th&eacute;rapie. Pas de diagnostic. Pas un service de crise.</p>
+            </div>
+            <div class="monai-hero__character" aria-hidden="true">
+              <img src="Monai shadow clean.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <p class="section-label">Ce que fait Monai&trade;</p>
+          <h2>R&eacute;flexion. Psycho&eacute;ducation. Strat&eacute;gies d&rsquo;adaptation.</h2>
+          <div class="monai-cols">
+            <div class="monai-col">
+              <h3>R&eacute;fl&eacute;chir</h3>
+              <p>Monai&trade; lit vos tendances de mieux-&ecirc;tre PulseKey&trade; et les signaux de votre bilan actuel pour offrir des r&eacute;flexions contextuelles. Il sait comment vous vous portez dans le temps, pas seulement aujourd&rsquo;hui.</p>
+            </div>
+            <div class="monai-col">
+              <h3>Ressources fond&eacute;es sur des donn&eacute;es probantes</h3>
+              <p>Chaque suggestion de Monai&trade; est ancr&eacute;e dans des recherches &eacute;valu&eacute;es par des pairs: techniques de respiration, exercices d&rsquo;ancrage, recadrage cognitif et strat&eacute;gies d&rsquo;adaptation valid&eacute;es.</p>
+            </div>
+            <div class="monai-col">
+              <h3>Soutien en temps r&eacute;el</h3>
+              <p>Monai&trade; est disponible entre les bilans pour un soutien sur le vif. Vous sentez-vous d&eacute;pass&eacute; avant une r&eacute;union? Monai&trade; peut vous guider dans un exercice de r&eacute;gulation valid&eacute; de 3 minutes.</p>
+            </div>
+            <div class="monai-col">
+              <h3>S&rsquo;orienter</h3>
+              <p>Lorsque vous avez besoin de plus que ce que Monai&trade; peut offrir, il vous aide &agrave; trouver la prochaine &eacute;tape vers un soutien professionnel.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Monai diagram FR -->
+      <section aria-label="Comment fonctionne Monai">
+        <div class="container" style="text-align: center;">
+          <img src="For Website- Monai (2).png" alt="Sch&eacute;ma Monai montrant les entr&eacute;es PulseKey &agrave; gauche, le compagnon Monai au centre, et le soutien offert &agrave; droite" style="width: 100%; max-width: 800px; display: inline-block; border-radius: 12px;" />
+          <p style="font-size: 0.85rem; color: var(--grey-text); margin-top: 10px; max-width: 800px; display: inline-block; text-align: left;">Monai&trade; int&egrave;gre vos bilans PulseKey&trade;, votre progression dans le temps et vos entr&eacute;es de session pour offrir un soutien personnalis&eacute; fond&eacute; sur des donn&eacute;es probantes.</p>
+        </div>
+      </section>
+
+      <section class="monai-different">
+        <div class="container">
+          <p class="section-label">Ce qui distingue Monai&trade;</p>
+          <h2>La profondeur plut&ocirc;t que la largeur. Vos donn&eacute;es, pas un script.</h2>
+          <div class="monai-different__grid">
+            <div class="monai-different__item">
+              <p>Monai&trade; n&rsquo;est pas une IA conversationnelle g&eacute;n&eacute;rale. Derri&egrave;re Monai&trade; se trouve un syst&egrave;me IA multimodal qui s&rsquo;appuie sur vos acoustiques vocales, vos r&eacute;ponses &eacute;crites et vos signaux de dessin ensemble. Monai&trade; conna&icirc;t un domaine en profondeur: la science du mieux-&ecirc;tre mental et de la gestion du stress fond&eacute;e sur des donn&eacute;es probantes.</p>
+            </div>
+            <div class="monai-different__item">
+              <p>Monai&trade; a quelque chose que la plupart des compagnons IA n&rsquo;ont pas: votre historique. Il peut voir vos tendances de mieux-&ecirc;tre PulseKey&trade;, remarquer quand les sch&eacute;mas &eacute;voluent, et offrir un soutien ancr&eacute; dans vos donn&eacute;es r&eacute;elles, pas un script g&eacute;n&eacute;rique.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="not-section">
+        <div class="container">
+          <h2>Ce que Monai&trade; n&rsquo;est pas</h2>
+          <div class="not-grid" role="list">
+            <div class="not-item" role="listitem"><p class="not-item__text">Pas un th&eacute;rapeute ou psychologue</p></div>
+            <div class="not-item" role="listitem"><p class="not-item__text">Pas un service de crise ou d&rsquo;urgence</p></div>
+            <div class="not-item" role="listitem"><p class="not-item__text">Pas un outil m&eacute;dical ou clinique</p></div>
+            <div class="not-item" role="listitem"><p class="not-item__text">Pas un substitut aux soins professionnels</p></div>
+          </div>
+          <div class="crisis-callout" role="alert">
+            <p>Si vous vivez une crise, des pens&eacute;es d&rsquo;automutilation ou une urgence, <strong>ne comptez pas sur Monai&trade;</strong>. Appelez le <strong>9-8-8</strong> (soutien en cas de crise suicidaire, Canada, 24/7), le <strong>911</strong>, ou rendez-vous aux urgences les plus proches.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="between-sessions">
+        <div class="container">
+          <div class="between-sessions__inner">
+            <p class="section-label">L&rsquo;espace entre</p>
+            <h2>Pour les moments entre les soins professionnels</h2>
+            <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75; margin-top: 20px;">Monai&trade; n&rsquo;est pas destin&eacute; &agrave; remplacer votre th&eacute;rapeute, m&eacute;decin ou conseiller. C&rsquo;est pour les moments en entre-deux: quand vous voulez r&eacute;fl&eacute;chir, pratiquer une comp&eacute;tence, ou avoir un espace structur&eacute; pour penser.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="appstore appstore--light">
+        <div class="container">
+          <p class="section-label">T&eacute;l&eacute;charger</p>
+          <h2>Rencontrer Monai&trade; dans l&rsquo;application</h2>
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank" rel="noopener" aria-label="T&eacute;l&eacute;charger mentAImage sur l&rsquo;App Store">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span class="store-badge__text"><span class="store-badge__line1">T&eacute;l&eacute;charger sur</span><span class="store-badge__line2">App Store</span></span>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.mentaimage.app" target="_blank" rel="noopener" aria-label="Obtenir mentAImage sur Google Play">
+              <svg class="store-badge__icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.19.96.08l13.05-7.53-2.75-2.75-11.26 10.2zm-1.7-20.4C1.18 3.7 1 4.08 1 4.56v14.88c0 .48.18.86.48 1.12l.06.06 8.34-8.34v-.2L1.54 3.3l-.06.06zM20.29 10.7l-2.77-1.6-3.1 3.1 3.1 3.1 2.8-1.62c.8-.46.8-1.52-.03-1.98zM3.18.24L14.44 7.77l-2.75 2.75L3.18.24z"/></svg>
+              <span class="store-badge__text"><span class="store-badge__line1">Obtenir sur</span><span class="store-badge__line2">Google Play</span></span>
+            </a>
+          </div>
+          <p class="appstore__note">T&eacute;l&eacute;chargez gratuitement sur iOS et Android.</p>
+        </div>
+      </section>
+
+      <footer class="footer" role="contentinfo">
+        <div class="container">
+          <div class="footer__grid">
+            <div class="footer__brand">
+              <img src="https://mentaimage.com/wp-content/uploads/2025/02/mentAImage-logo_clear-bkg-white-1.png" alt="mentAImage" class="footer__logo" height="34" />
+              <p class="footer__tagline">Mieux-&ecirc;tre mental pr&eacute;ventif pour les individus et les organisations. Pas de th&eacute;rapie. Pas de diagnostic. Un soutien plus intelligent.</p>
+            </div>
+            <div>
+              <p class="footer__col-title">Produit</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="pulsekey-fr">PulseKey&trade;</button></li>
+                <li><button class="footer__link-btn" data-page="monai-fr">Monai&trade;</button></li>
+                <li><button class="footer__link-btn" data-page="home-fr" data-scroll="home-fr-orgs">Pour les organisations</button></li>
+                <li><a class="footer__link-btn" href="https://apps.apple.com/us/app/mentaimage/id6748889969" target="_blank">T&eacute;l&eacute;charger</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Compagnie</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="about-fr">&Agrave; propos</button></li>
+                <li><button class="footer__link-btn" data-page="contact-fr">Contact</button></li>
+                <li><button class="footer__link-btn" data-page="contact-fr">Demander une d&eacute;mo</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">L&eacute;gal</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn" data-page="privacy-fr">Politique de confidentialit&eacute;</button></li>
+                <li><button class="footer__link-btn" data-page="terms-fr">Conditions d&rsquo;utilisation</button></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__col-title">Langue</p>
+              <ul class="footer__links">
+                <li><button class="footer__link-btn en-lang-btn">English</button></li>
+                <li><a href="#" aria-current="true">Fran&ccedil;ais</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__bottom-left">&copy; 2025 MentaImage Inc. Tous droits r&eacute;serv&eacute;s.</p>
+            <p class="footer__disclaimer-line">mentAImage&trade; est une plateforme de mieux-&ecirc;tre mental, pas de th&eacute;rapie. <button class="disclaimer-trigger">Voir la clause compl&egrave;te.</button></p>
+          </div>
+        </div>
+      </footer>
+    </div><!-- /page-monai-fr -->
+
+    <!-- PAGE ABOUT-FR -->
+    <div class="page-section" id="page-about-fr">
+      <section style="background: #081e2f; padding: calc(var(--nav-h) + clamp(40px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);">
+        <div class="container">
+          <p class="section-label">Notre histoire</p>
+          <h1 style="color: #ffffff;">Construit &agrave; l&rsquo;intersection de <span class="underline-gradient">la m&eacute;decine, de l&rsquo;IA et du comportement humain</span></h1>
+          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.75; max-width: 680px; margin-top: 20px;">La plupart des outils de mieux-&ecirc;tre vous demandent comment vous vous sentez et s&rsquo;arr&ecirc;tent l&agrave;. Nous savions que ce n&rsquo;&eacute;tait pas suffisant. mentAImage&trade; a &eacute;t&eacute; construit pour capter ce que les mots seuls ne peuvent pas.</p>
+        </div>
+      </section>
+
+      <section style="background: #ffffff;">
+        <div class="container">
+          <p class="section-label">Le fondateur</p>
+          <div class="about-founder-layout">
+            <div class="about-founder-photo">
+              <img src="https://mentaimage.com/wp-content/uploads/2025/02/Ghadakzadeh.png" alt="Dr Saber Ghadakzadeh, MD-PhD, fondateur de mentAImage" width="280" height="280" />
+            </div>
+            <div>
+              <h2>Dr Saber Ghadakzadeh, MD-PhD</h2>
+              <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75; margin-top: 16px;">Le Dr Ghadakzadeh est m&eacute;decin-chercheur et entrepreneur titulaire d&rsquo;un MD, d&rsquo;une Ma&icirc;trise et d&rsquo;un PhD. Au cours de 25 ans, il a travaill&eacute; en m&eacute;decine clinique, recherche acad&eacute;mique, g&eacute;nie g&eacute;n&eacute;tique, nanotechnologie et IA en sant&eacute;. Il est le fondateur de mentAImage&trade; et PulseKey&trade;.</p>
+              <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">En travaillant dans les h&ocirc;pitaux, les laboratoires de recherche et les organisations, il a constamment observ&eacute; la m&ecirc;me chose: le stress et l&rsquo;&eacute;puisement s&rsquo;accumulaient bien avant que quiconque ne le sache. Les sondages ne fonctionnaient pas. Les gens avaient peur de parler honn&ecirc;tement. Et les signaux les plus importants, la voix, l&rsquo;expression, le comportement non verbal, n&rsquo;&eacute;taient jamais captur&eacute;s.</p>
+              <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">Il a construit mentAImage&trade; pour combler cette lacune. Pas un autre sondage. Pas un autre chatbot qui demande comment vous vous sentez. Un syst&egrave;me multimodal qui &eacute;coute, observe et comprend, tout en gardant tout priv&eacute; par conception.</p>
+            </div>
+          </div>
+          <blockquote class="about-pull-quote">&laquo;&nbsp;Si quelqu&rsquo;un ne comprend pas quelque chose, c&rsquo;est peut-&ecirc;tre qu&rsquo;on ne l&rsquo;explique pas de la bonne fa&ccedil;on. Cette philosophie a fa&ccedil;onn&eacute; tout ce que nous avons construit.&nbsp;&raquo;</blockquote>
+        </div>
+      </section>
+
+      <section style="background: #F2EDE3;">
+        <div class="container">
+          <p class="section-label">Pourquoi mentAImage&trade;</p>
+          <h2>Les probl&egrave;mes que nous avons voulu r&eacute;soudre</h2>
+          <p style="color: var(--grey-text); font-size: 1.05rem; line-height: 1.75; max-width: 720px; margin-top: 16px;">L&rsquo;&eacute;puisement professionnel n&rsquo;est pas un &eacute;chec personnel. Il se construit en amont, silencieusement, sur des mois. Nous avons construit des outils pour faire remonter ces signaux plus t&ocirc;t.</p>
+          <div class="grid-3">
+            <div class="card"><h3>Les sondages ne fonctionnent pas</h3><p>Les gens ont peur de s&rsquo;exprimer. La participation est faible car les gens craignent d&rsquo;&ecirc;tre cibl&eacute;s. Nous avons construit un syst&egrave;me de bilan en lequel les gens peuvent avoir confiance.</p></div>
+            <div class="card"><h3>Un seul canal ne suffit pas</h3><p>Ce que quelqu&rsquo;un &eacute;crit dans une zone de texte ne capte que ce qu&rsquo;il peut articuler. La voix, le dessin et l&rsquo;&eacute;criture ensemble r&eacute;v&egrave;lent des sch&eacute;mas que les mots seuls ne peuvent pas.</p></div>
+            <div class="card"><h3>Le mieux-&ecirc;tre ne devrait pas d&eacute;pendre d&rsquo;une seule personne</h3><p>Un responsable RH passionn&eacute; qui part emporte tous les progr&egrave;s avec lui. Nous aidons les organisations &agrave; int&eacute;grer le mieux-&ecirc;tre dans leurs syst&egrave;mes, leur embauche, leur int&eacute;gration et leurs processus.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: #ffffff;">
+        <div class="container">
+          <p class="section-label">&Agrave; qui nous nous adressons</p>
+          <h2>Con&ccedil;u pour tout le monde. Surtout ceux que les outils standard ratent.</h2>
+          <div style="max-width: 720px; margin-top: 20px;">
+            <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">mentAImage&trade; est con&ccedil;u pour toute personne qui vit du stress, ce qui inclut chaque individu dans chaque milieu de travail. Nous sommes particuli&egrave;rement efficaces pour les personnes neurodiverses, non pas parce qu&rsquo;elles ont besoin d&rsquo;un outil sp&eacute;cial, mais parce que les outils de mieux-&ecirc;tre standard n&rsquo;ont pas &eacute;t&eacute; con&ccedil;us en les gardant &agrave; l&rsquo;esprit.</p>
+            <p style="color: var(--grey-text); font-size: 1rem; line-height: 1.75;">Notre approche multimodale, combinant les acoustiques vocales, la r&eacute;flexion &eacute;crite et l&rsquo;expression cr&eacute;ative, capte des signaux qu&rsquo;une zone de texte ne peut tout simplement pas. Cela rend mentAImage&trade; plus pr&eacute;cis pour tout le monde, et v&eacute;ritablement utile pour ceux qui ont &eacute;t&eacute; invisibles aux autres outils.</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: #081e2f;">
+        <div class="container">
+          <h2 style="color: #ffffff;">Vous voulez en savoir plus ou vous impliquer?</h2>
+          <p style="color: rgba(255,255,255,0.78); font-size: 1.05rem; line-height: 1.75; max-width: 600px; margin-top: 16px; margin-bottom: 32px;">Que vous soyez un individu, un chercheur, un employeur ou un clinicien, nous serions ravis d&rsquo;&eacute;changer avec vous.</p>
+          <button class="btn btn-primary" data-page="contact-fr">Nous contacter</button>
+        </div>
+      </section>
+    </div><!-- /page-about-fr -->
+
+    <!-- PAGE CONTACT-FR -->
+    <div class="page-section" id="page-contact-fr">
+      <section style="background: #081e2f; padding: calc(var(--nav-h) + clamp(40px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);">
+        <div class="container">
+          <p class="section-label">Nous joindre</p>
+          <h1 style="color: #ffffff;">Parlons</h1>
+          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.75; max-width: 600px; margin-top: 20px;">Que vous soyez un individu, un clinicien, un employeur ou un chercheur, nous serions ravis de vous entendre.</p>
+        </div>
+      </section>
+
+      <section style="background: #ffffff;">
+        <div class="container">
+          <div class="contact-grid">
+            <div>
+              <p class="section-label">Contact</p>
+              <h2>Envoyez-nous un message</h2>
+              <form action="https://formsubmit.co/info@mentaimage.com" method="POST" style="margin-top: 28px; display: flex; flex-direction: column; gap: 18px;" onsubmit="handleContactForm(event)">
+                <input type="hidden" name="_subject" value="Nouveau message depuis le site mentAImage" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value="https://misty-moon-ffd8.saber-4e4.workers.dev/?p=contact-fr&sent=1" />
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="fr-contact-name">Nom complet <span style="color:#c0392b;">*</span></label>
+                  <input id="fr-contact-name" name="name" type="text" required placeholder="Votre nom" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); outline: none;" />
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="fr-contact-email">Courriel <span style="color:#c0392b;">*</span></label>
+                  <input id="fr-contact-email" name="email" type="email" required placeholder="vous@exemple.com" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); outline: none;" />
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="fr-contact-type">Je suis&hellip;</label>
+                  <select id="fr-contact-type" name="type" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); background: #fff; outline: none;">
+                    <option value="">Choisir</option>
+                    <option>Individu / utilisateur potentiel</option>
+                    <option>Employeur / responsable RH</option>
+                    <option>Clinicien ou chercheur</option>
+                    <option>Investisseur ou partenaire</option>
+                    <option>Autre</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px;" for="fr-contact-message">Message <span style="color:#c0392b;">*</span></label>
+                  <textarea id="fr-contact-message" name="message" required rows="5" placeholder="Comment pouvons-nous vous aider?" style="width: 100%; padding: 12px 16px; border: 1px solid var(--grey-border); border-radius: 8px; font-family: inherit; font-size: 1rem; color: var(--navy-mid); resize: vertical; outline: none;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Envoyer</button>
+              </form>
+            </div>
+            <div style="padding-top: 16px;">
+              <p class="section-label">Autres fa&ccedil;ons de nous joindre</p>
+              <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 28px;">
+                <div>
+                  <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Courriel</p>
+                  <a href="mailto:info@mentaimage.com" style="color: var(--teal);">info@mentaimage.com</a>
+                </div>
+                <div>
+                  <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Bas&eacute; &agrave;</p>
+                  <p style="color: var(--grey-text);">Montr&eacute;al, Qu&eacute;bec, Canada</p>
+                </div>
+                <div>
+                  <p style="font-weight: 700; color: var(--navy-mid); margin-bottom: 4px;">Partenariats et projets pilotes</p>
+                  <p style="color: var(--grey-text);">Int&eacute;ress&eacute; par un projet pilote de recherche subventionn&eacute;? Nous travaillons avec des organisations via les programmes Primo-Adoptants et CIS. <button class="btn btn-primary" data-page="home-fr" style="margin-top: 12px; display: block;">En savoir plus</button></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div><!-- /page-contact-fr -->
+
+    <!-- PAGE PRIVACY-FR -->
+    <div class="page-section" id="page-privacy-fr">
+      <section style="background:#081e2f; padding: calc(var(--nav-h) + clamp(32px,4vw,56px)) 0 clamp(32px,4vw,56px);">
+        <div class="container">
+          <h1 style="color:#fff;">Politique de confidentialit&eacute;</h1>
+          <p style="color:rgba(255,255,255,0.7); margin-top:8px; font-size:0.9rem;">Derni&egrave;re mise &agrave; jour: 13 juin 2026 &middot; En vigueur: 13 juin 2026</p>
+        </div>
+      </section>
+      <section style="background:#fff;">
+        <div class="container" style="max-width:780px;">
+          <div class="legal-body">
+            <p>Cette politique de confidentialit&eacute; s&rsquo;applique au site web mentAImage.com. MentaImage Inc. (&laquo;&nbsp;MentaImage&nbsp;&raquo;, &laquo;&nbsp;nous&nbsp;&raquo;) est bas&eacute;e au Qu&eacute;bec, Canada.</p>
+            <h2>1. Ce que nous collectons sur ce site</h2>
+            <p>Ce site web n&rsquo;utilise pas de t&eacute;moins (cookies), pixels de suivi ou scripts d&rsquo;analyse. La seule information personnelle que nous collectons est celle que vous soumettez volontairement via le formulaire de contact: votre nom, adresse courriel, votre r&ocirc;le (optionnel) et votre message.</p>
+            <h2>2. Utilisation des soumissions du formulaire de contact</h2>
+            <p>Les soumissions du formulaire de contact sont achemin&eacute;es &agrave; notre &eacute;quipe &agrave; <a href="mailto:info@mentaimage.com" style="color:var(--teal);">info@mentaimage.com</a> via FormSubmit.co. Nous utilisons ces informations uniquement pour r&eacute;pondre &agrave; votre demande. Nous ne vous ajoutons pas &agrave; des listes de diffusion et ne partageons pas vos coordonn&eacute;es sans votre consentement.</p>
+            <h2>3. Pas de suivi ni d&rsquo;analyse</h2>
+            <p>Ce site web n&rsquo;utilise pas Google Analytics, Meta Pixel ou tout autre outil de suivi comportemental. Nous ne suivons pas votre comportement de navigation, votre empreinte num&eacute;rique ou votre localisation.</p>
+            <h2>4. Vos droits (Loi 25 du Qu&eacute;bec / LPRPDE)</h2>
+            <p>Vous avez le droit d&rsquo;acc&eacute;der, de corriger ou de demander la suppression des informations personnelles que nous d&eacute;tenons sur vous. Pour exercer ces droits, &eacute;crivez &agrave; <a href="mailto:privacy@mentaimage.com" style="color:var(--teal);">privacy@mentaimage.com</a>. Nous r&eacute;pondons dans les 30 jours.</p>
+            <h2>5. Contact</h2>
+            <p>Responsable de la protection des renseignements personnels, MentaImage Inc., Qu&eacute;bec, Canada<br><a href="mailto:privacy@mentaimage.com" style="color:var(--teal);">privacy@mentaimage.com</a></p>
+          </div>
+        </div>
+      </section>
+    </div><!-- /page-privacy-fr -->
+
+    <!-- PAGE TERMS-FR -->
+    <div class="page-section" id="page-terms-fr">
+      <section style="background:#081e2f; padding: calc(var(--nav-h) + clamp(32px,4vw,56px)) 0 clamp(32px,4vw,56px);">
+        <div class="container">
+          <h1 style="color:#fff;">Conditions d&rsquo;utilisation</h1>
+          <p style="color:rgba(255,255,255,0.7); margin-top:8px; font-size:0.9rem;">Derni&egrave;re mise &agrave; jour: 13 juin 2026 &middot; En vigueur: 13 juin 2026</p>
+        </div>
+      </section>
+      <section style="background:#fff;">
+        <div class="container" style="max-width:780px;">
+          <div class="legal-body">
+            <p>Ces conditions d&rsquo;utilisation r&eacute;gissent votre utilisation du site web mentAImage.com. En visitant le site, vous acceptez ces conditions.</p>
+            <h2>1. &Agrave; titre informatif seulement</h2>
+            <p>Le contenu de ce site est &agrave; titre informatif g&eacute;n&eacute;ral seulement. Rien sur ce site ne constitue un conseil m&eacute;dical, un traitement de sant&eacute; mentale, une psychoth&eacute;rapie, un diagnostic ou une &eacute;valuation clinique. mentAImage&trade;, PulseKey&trade; et Monai&trade; sont des outils de mieux-&ecirc;tre mental, pas de th&eacute;rapie et pas des dispositifs m&eacute;dicaux.</p>
+            <h2>2. Pas un service de crise</h2>
+            <p><strong>Ce site web n&rsquo;est pas un service de crise.</strong> Si vous &ecirc;tes en danger imm&eacute;diat ou vivez une urgence en sant&eacute; mentale, contactez les services d&rsquo;urgence: appelez ou textez le <strong>9-8-8</strong> (soutien en cas de crise suicidaire, Canada, 24/7), composez le <strong>911</strong>, ou rendez-vous aux urgences les plus proches.</p>
+            <h2>3. Propri&eacute;t&eacute; intellectuelle</h2>
+            <p>Tout le contenu de ce site, y compris les textes, images, logos et design, est la propri&eacute;t&eacute; de MentaImage Inc. mentAImage&trade;, PulseKey&trade; et Monai&trade; sont des marques de commerce de MentaImage Inc.</p>
+            <h2>4. Exactitude du contenu</h2>
+            <p>Nous faisons des efforts raisonnables pour maintenir le contenu du site &agrave; jour et exact, mais nous ne garantissons pas l&rsquo;exhaustivit&eacute; ou l&rsquo;exactitude de toute information sur ce site.</p>
+            <h2>5. Loi applicable</h2>
+            <p>Ces conditions sont r&eacute;gies par les lois de la province de Qu&eacute;bec et les lois f&eacute;d&eacute;rales du Canada. Les litiges sont soumis &agrave; la juridiction exclusive des tribunaux de Montr&eacute;al, Qu&eacute;bec.</p>
+            <h2>6. Contact</h2>
+            <p>MentaImage Inc., Qu&eacute;bec, Canada<br><a href="mailto:info@mentaimage.com" style="color:var(--teal);">info@mentaimage.com</a></p>
+          </div>
+        </div>
+      </section>
+    </div><!-- /page-terms-fr -->
+
+  </main>
+
+  <!--
+    WordPress: Risk-Free Innovation page (id 591) should be repurposed as:
+    "Start at zero risk" - anchor page for subsidized and funded pilots.
+    Content: Primo Adoption program ($0 to mostly subsidized entry), ISC (Industrial Scientific Collaboration) grants, other possible funding pathways.
+    Headline: "Your first pilot can cost you almost nothing."
+  -->
+
+  <!--
+    WordPress: Intake forms (id 1719, 1605) - do NOT archive.
+    Assess whether they are Mentametric-specific or can be repurposed for PulseKey/Monai pilot intake.
+  -->
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Page switcher
+      var pages = ['home', 'pulsekey', 'monai', 'about', 'contact', 'privacy', 'terms', 'home-fr', 'pulsekey-fr', 'monai-fr', 'about-fr', 'contact-fr', 'privacy-fr', 'terms-fr'];
+      var currentPage = 'home';
+
+      function showPage(pageName, scrollId) {
+        pages.forEach(function (p) {
+          var el = document.getElementById('page-' + p);
+          if (el) el.classList.remove('active');
+        });
+
+        var target = document.getElementById('page-' + pageName);
+        if (!target) return;
+        target.classList.add('active');
+        currentPage = pageName;
+
+        document.querySelectorAll('.nav__link[data-page]').forEach(function (btn) {
+          btn.classList.remove('active');
+          if (btn.dataset.page === pageName && !btn.dataset.scroll) {
+            btn.classList.add('active');
+          }
+        });
+
+        var newUrl = pageName === 'home' ? window.location.pathname : '?p=' + pageName;
+        history.pushState({ page: pageName }, '', newUrl);
+
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        if (scrollId) {
+          setTimeout(function () {
+            var el = document.getElementById(scrollId);
+            if (el) {
+              var top = el.getBoundingClientRect().top + window.pageYOffset - 72;
+              window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+          }, 60);
+        }
+
+        closeMobileMenu();
+      }
+
+      // Expose globally
+      window.showPage = showPage;
+
+      // Read ?p= URL param on load to open the right page
+      (function () {
+        var param = new URLSearchParams(window.location.search).get('p');
+        if (param && pages.indexOf(param) !== -1) showPage(param);
+      })();
+
+      // Support browser back/forward
+      window.addEventListener('popstate', function (e) {
+        var page = (e.state && e.state.page) || new URLSearchParams(window.location.search).get('p') || 'home';
+        if (pages.indexOf(page) !== -1) {
+          showPage(page);
+          updateLangBtn(page.endsWith('-fr'));
+        }
+      });
+
+      // Nav and footer button click handlers
+      document.querySelectorAll('[data-page]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var page = btn.dataset.page;
+          var scroll = btn.dataset.scroll || null;
+          // If currently in FR mode and target is an EN page, redirect to its FR equivalent
+          var isFrMode = currentPage.endsWith('-fr');
+          if (isFrMode && page && !page.endsWith('-fr') && pages.indexOf(page + '-fr') !== -1) {
+            page = page + '-fr';
+            scroll = null;
+          }
+          if (page) showPage(page, scroll);
+        });
+      });
+
+      // Logo click
+      var logoLink = document.querySelector('.nav__logo-link');
+      if (logoLink) {
+        logoLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          showPage('home');
+        });
+      }
+
+      // Mobile hamburger
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobile-menu');
+
+      function closeMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+      }
+
+      if (hamburger) {
+        hamburger.addEventListener('click', function () {
+          var isOpen = mobileMenu.classList.toggle('open');
+          mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+          hamburger.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+
+      // Smooth scroll for same-page data-scroll (no data-page)
+      document.querySelectorAll('[data-scroll]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (!btn.dataset.page) {
+            var el = document.getElementById(btn.dataset.scroll);
+            if (el) {
+              var top = el.getBoundingClientRect().top + window.pageYOffset - 72;
+              window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+          }
+        });
+      });
+
+      // Modal system
+      function openModal(id) {
+        var overlay = document.getElementById(id);
+        if (!overlay) return;
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        // Focus first focusable element
+        var focusable = overlay.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length) focusable[0].focus();
+      }
+
+      function closeModal(id) {
+        var overlay = document.getElementById(id);
+        if (!overlay) return;
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      // FR/EN nav button — toggles between languages
+      function updateLangBtn(isFr) {
+        var label = isFr ? 'EN' : 'FR';
+        var ariaLabel = isFr ? 'Switch to English' : 'Switch to French';
+        [document.getElementById('fr-btn'), document.getElementById('fr-btn-mobile')].forEach(function(btn) {
+          if (btn) { btn.textContent = label; btn.setAttribute('aria-label', ariaLabel); }
+        });
+      }
+
+      function switchToFr() {
+        var target = currentPage.endsWith('-fr') ? currentPage : (pages.indexOf(currentPage + '-fr') !== -1 ? currentPage + '-fr' : 'home-fr');
+        showPage(target);
+        updateLangBtn(true);
+      }
+      function switchToEn() {
+        var target = currentPage.endsWith('-fr') ? currentPage.slice(0, -3) : currentPage;
+        if (pages.indexOf(target) === -1) target = 'home';
+        showPage(target);
+        updateLangBtn(false);
+      }
+
+      var frBtn = document.getElementById('fr-btn');
+      if (frBtn) frBtn.addEventListener('click', function () {
+        currentPage.endsWith('-fr') ? switchToEn() : switchToFr();
+        closeMobileMenu();
+      });
+
+      var frBtnMobile = document.getElementById('fr-btn-mobile');
+      if (frBtnMobile) frBtnMobile.addEventListener('click', function () {
+        currentPage.endsWith('-fr') ? switchToEn() : switchToFr();
+        closeMobileMenu();
+      });
+
+      // FR buttons in footers
+      document.querySelectorAll('.fr-footer-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { switchToFr(); });
+      });
+
+      // FR footer link (home page footer)
+      var frFooter = document.getElementById('fr-footer');
+      if (frFooter) frFooter.addEventListener('click', function () { switchToFr(); });
+
+      // EN buttons in French page footers — go back to EN equivalent
+      document.querySelectorAll('.en-lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { switchToEn(); });
+      });
+
+      // Disclaimer triggers
+      document.querySelectorAll('.disclaimer-trigger').forEach(function (btn) {
+        btn.addEventListener('click', function () { openModal('modal-disclaimer'); });
+      });
+
+      // Close buttons inside modals
+      document.querySelectorAll('[data-close]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          closeModal(btn.dataset.close);
+        });
+      });
+
+      // Close on overlay background click
+      document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) closeModal(overlay.id);
+        });
+      });
+
+      // Close on Escape key, trap focus inside modal
+      document.addEventListener('keydown', function (e) {
+        var openOverlay = document.querySelector('.modal-overlay.open');
+        if (!openOverlay) return;
+
+        if (e.key === 'Escape') {
+          closeModal(openOverlay.id);
+          return;
+        }
+
+        if (e.key === 'Tab') {
+          var focusable = Array.from(openOverlay.querySelectorAll(
+            'button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          ));
+          if (!focusable.length) return;
+          var first = focusable[0];
+          var last = focusable[focusable.length - 1];
+          if (e.shiftKey) {
+            if (document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            }
+          } else {
+            if (document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        }
+      });
+
+      // Active nav on scroll (within current page)
+      var navObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.id;
+            var pageMap = { 'home': 'home', 'pulsekey': 'pulsekey', 'monai': 'monai' };
+            if (pageMap[id]) {
+              document.querySelectorAll('.nav__link[data-page]').forEach(function (btn) {
+                btn.classList.remove('active');
+                if (btn.dataset.page === pageMap[id] && !btn.dataset.scroll) {
+                  btn.classList.add('active');
+                }
+              });
+            }
+          }
+        });
+      }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+
+      ['home', 'pulsekey', 'monai'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) navObserver.observe(el);
+      });
+
+      // Nav shadow on scroll
+      window.addEventListener('scroll', function () {
+        var nav = document.querySelector('.nav');
+        if (nav) {
+          nav.style.boxShadow = window.scrollY > 8
+            ? '0 1px 12px rgba(26,46,68,0.08)'
+            : 'none';
+        }
+      }, { passive: true });
+
+    })();
+
+    // Contact form handler — submits to FormSubmit.co
+    window.handleContactForm = function(e) {
+      var form = e.target;
+      var valid = true;
+      form.querySelectorAll('[required]').forEach(function(field) {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#c0392b';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      if (!valid) { e.preventDefault(); return; }
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+    };
+
+  </script>
+</body>
+
+</html>

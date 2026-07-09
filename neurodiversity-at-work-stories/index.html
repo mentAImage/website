@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beneath the Resume &mdash; Neurodiversity at Work Stories | mentAImage&trade;</title>
+  <meta name="description" content="Real stories of neurodivergent professionals navigating the workplace. Beneath the Resume is a mentAImage series celebrating lived experience, resilience, and inclusion." />
+  <link rel="stylesheet" href="/shared.css" />
+  <style>
+    .stories-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: #fff;
+      padding: 72px 0 60px;
+      text-align: center;
+    }
+    .stories-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 12px; }
+    .stories-hero .subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.8); max-width: 640px; margin: 0 auto 20px; line-height: 1.7; }
+    .stories-hero .byline { color: var(--teal); font-size: 0.92rem; font-weight: 600; }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+      padding: 56px 0 80px;
+    }
+
+    .story-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(8,30,47,0.08);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .story-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(8,30,47,0.14); }
+    .story-card a { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
+
+    .card-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .card-photo-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, var(--navy-mid), var(--teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .card-blur { filter: blur(12px); }
+
+    .card-body { padding: 22px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .card-tag { font-size: 0.75rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .card-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.4; }
+    .card-excerpt { font-size: 0.88rem; color: var(--grey-text); line-height: 1.65; flex: 1; }
+    .card-footer { margin-top: 16px; font-size: 0.8rem; color: #9aa8b6; font-style: italic; }
+
+    .series-intro {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 32px 36px;
+      margin-bottom: 40px;
+    }
+    .series-intro h2 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .series-intro p { color: var(--navy-mid); line-height: 1.7; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__logo-link" aria-label="mentAImage home">
+        <img src="/logo.png" alt="mentAImage" class="nav__logo" height="36" />
+      </a>
+      <div class="nav__links" role="menubar">
+        <a class="nav__link" href="/index.html" role="menuitem">Home</a>
+        <a class="nav__link" href="/pulsekey.html" role="menuitem">PulseKey&trade;</a>
+        <a class="nav__link" href="/monai.html" role="menuitem">Monai&trade;</a>
+        <a class="nav__link" href="/about.html" role="menuitem">About</a>
+        <a class="nav__link active" href="/neurodiversity-at-work-stories/" role="menuitem">Stories</a>
+        <a class="nav__link" href="/contact.html" role="menuitem">Contact</a>
+        <a class="nav__link nav__link--lang" href="/fr/" aria-label="Passer en fran&ccedil;ais">FR</a>
+        <a class="btn btn-primary nav__cta" href="/contact.html">Request a Demo</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <a class="nav__link" href="/index.html">Home</a>
+    <a class="nav__link" href="/pulsekey.html">PulseKey&trade;</a>
+    <a class="nav__link" href="/monai.html">Monai&trade;</a>
+    <a class="nav__link" href="/about.html">About</a>
+    <a class="nav__link active" href="/neurodiversity-at-work-stories/">Stories</a>
+    <a class="nav__link" href="/contact.html">Contact</a>
+    <a class="nav__link nav__link--lang" href="/fr/">FR</a>
+    <a class="btn btn-primary" href="/contact.html">Request a Demo</a>
+  </div>
+
+  <div class="stories-hero">
+    <div class="container">
+      <p class="byline">Beneath the Resume &mdash; A mentAImage Series</p>
+      <h1>Neurodiversity at Work</h1>
+      <p class="subtitle">Real stories of neurodivergent professionals navigating workplaces, finding their strengths, and advocating for inclusion. Curated and written by Elissia Moullas.</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <div class="container">
+
+      <div class="series-intro">
+        <h2>About this series</h2>
+        <p>These are the stories that rarely appear on a resume. They are stories of burnout and resilience, of diagnosis and clarity, of workplaces that failed and workplaces that transformed. Each person here shared their experience so that others would feel less alone, and so that leaders might build something better. We are grateful to every contributor who trusted us with their story.</p>
+      </div>
+
+      <div class="stories-grid">
+
+        <!-- Steven Atme -->
+        <div class="story-card">
+          <a href="/the-heart-of-advocacy-stevens-story-of-faith-resilience-and-inclusion/">
+            <img src="/stories/photos/Steven Atme.JPG" alt="Steven Atme" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism</div>
+              <div class="card-title">The Heart of Advocacy: Steven&rsquo;s Story of Faith, Resilience, and Inclusion</div>
+              <div class="card-excerpt">From McDonald&rsquo;s to music classrooms to submitting legislative proposals to Canada&rsquo;s health ministers, Steven Atme turns lived experience into advocacy and compassion into change.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Amrrita Chopraa -->
+        <div class="story-card">
+          <a href="/special-in-the-best-possible-way-amrritas-story/">
+            <img src="/stories/photos/Amrrita Chopraa.JPG" alt="Amrrita Chopraa" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism &middot; ADHD</div>
+              <div class="card-title">Special in the Best Possible Way: Amrrita&rsquo;s Story</div>
+              <div class="card-excerpt">Diagnosed at 38 in a cultural context where autism was rarely discussed, Amrrita Chopraa found clarity, built new coping strategies, and holds onto optimism about neurodivergent talent.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Colin Murphy -->
+        <div class="story-card">
+          <a href="/finding-clarity-turning-a-dyslexia-journey-into-a-blueprint-for-change/">
+            <img src="/stories/photos/Colin Murphy.png" alt="Colin Murphy" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Dyslexia &middot; ADHD</div>
+              <div class="card-title">Finding Clarity: Turning a Dyslexia Journey into a Blueprint for Change</div>
+              <div class="card-excerpt">After a layoff, Colin Murphy founded Atypical Lean, using lean manufacturing principles to build neuro-inclusive workplaces. His story is one of systems, self-discovery, and sustainable work.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Deborah Shukyn-Plageman -->
+        <div class="story-card">
+          <a href="/listening-for-the-voices-we-miss-deborahs-journey/">
+            <img src="/stories/photos/Deborah Shukyn-Plageman.png" alt="Deborah Shukyn-Plageman" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism &middot; ADHD &middot; Twice Exceptional</div>
+              <div class="card-title">Listening for the Voices We Miss: Deborah&rsquo;s Journey Through Neurodivergence and Self-Designed Leadership</div>
+              <div class="card-excerpt">Diagnosed at 60 with autism and ADHD, Deborah Shukyn-Plageman built PersonaGrata and a leadership philosophy rooted in lived experience, disability justice, and radical listening.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Gillian Forth -->
+        <div class="story-card">
+          <a href="/shifting-the-default-gillian-on-disability-justice-and-workplace-change/">
+            <img src="/stories/photos/Gillian Forth.JPG" alt="Gillian Forth" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism</div>
+              <div class="card-title">Shifting the Default: Gillian on Disability Justice and Workplace Change</div>
+              <div class="card-excerpt">A late-realized autistic woman, Gillian Forth challenges ableism in nonprofit spaces and builds The Low Achiever practice around rest, equity, and neuroinclusion.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Hannelore Coeckelberghs -->
+        <div class="story-card">
+          <a href="/respecting-limits-hannelores-journey-toward-sustainable-work/">
+            <div class="card-photo-placeholder">&#9787;</div>
+            <div class="card-body">
+              <div class="card-tag">Autism</div>
+              <div class="card-title">Respecting Limits: Hannelore&rsquo;s Journey Toward Sustainable Work</div>
+              <div class="card-excerpt">After years of shouldering impossible workloads, Hannelore found her footing in a family business where her brother truly listens. Her story is about boundaries, burnout, and the courage to speak up.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Jon Mick -->
+        <div class="story-card">
+          <a href="/balancing-innovation-and-burnout-jons-story/">
+            <div class="card-photo-placeholder">&#9786;</div>
+            <div class="card-body">
+              <div class="card-tag">Autism &middot; ADHD &middot; Twice Exceptional</div>
+              <div class="card-title">Balancing Innovation and Burnout: Jon&rsquo;s Story</div>
+              <div class="card-excerpt">A consultant, innovator, and twice-exceptional professional, Jon Mick spent years burning bright then burning out before a recent diagnosis helped him reframe everything he thought he knew about himself.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Kelly C -->
+        <div class="story-card">
+          <a href="/from-burnout-to-belonging-kellys-journey-with-neurodivergence/">
+            <img src="/stories/photos/Kelly Crabbé.JPG" alt="Kelly C" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism &middot; ADHD</div>
+              <div class="card-title">From Burnout to Belonging: Kelly&rsquo;s Journey with Neurodivergence in the Workplace</div>
+              <div class="card-excerpt">Misdiagnosed for decades and fired after disclosing her diagnosis, Kelly C finally found a workplace that genuinely champions who she is. Her message: &ldquo;We are not broken. We are enough.&rdquo;</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Louise Leroy -->
+        <div class="story-card">
+          <a href="/it-was-just-too-much-louises-journey-to-finding-a-workplace-that-works/">
+            <img src="/stories/photos/Louise Leroy.JPG" alt="Louise Leroy" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism</div>
+              <div class="card-title">&ldquo;It Was Just Too Much&rdquo;: Louise&rsquo;s Journey to Finding a Workplace That Works</div>
+              <div class="card-excerpt">After years of jobs lasting only days, Louise Leroy found Passwerk, a company built around autistic professionals. Four years in, she has something she never had before: confidence.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Manshuk Kerey -->
+        <div class="story-card">
+          <a href="/a-diagnosis-in-progress-manshuk-on-neurodiversity-and-entrepreneurship/">
+            <img src="/stories/photos/Manshuk Ahmetzhan.png" alt="Manshuk Kerey" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">ADHD</div>
+              <div class="card-title">A Diagnosis in Progress: Understanding Begins at Home</div>
+              <div class="card-excerpt">When Manshuk Kerey&rsquo;s son was diagnosed with ADHD, it became a mirror. From Kazakhstan to McGill to founding Phrcert.com, her story is about interest-driven excellence and trust over punishment.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Marisa McClure -->
+        <div class="story-card">
+          <a href="/they-finally-saw-me-marisas-journey-with-neurodivergence/">
+            <img src="/stories/photos/Marisa McClure.jpeg" alt="Marisa McClure" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">ADHD &middot; Dyspraxia &middot; Dyscalculia</div>
+              <div class="card-title">&ldquo;They Finally Saw Me&rdquo;: Marisa&rsquo;s Journey with Neurodivergence in the Workplace</div>
+              <div class="card-excerpt">Marisa McClure&rsquo;s neurodivergence was invisible to most workplaces, until one small clinic chose to see her strengths instead of her struggles. That difference changed everything.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Nat Hawley -->
+        <div class="story-card">
+          <a href="/beyond-equality-nat-on-neurodiversity-and-equity-at-work/">
+            <img src="/stories/photos/Nat Hawley.png" alt="Nat Hawley" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism &middot; Dyspraxia &middot; Dyslexia</div>
+              <div class="card-title">Beyond Equality: Nat on Neurodiversity and Equity at Work</div>
+              <div class="card-excerpt">Diagnosed early, filtered out repeatedly, Nat Hawley built Divergent Thinking and has delivered 350+ sessions on neuroinclusion. Their vision: workplaces that go beyond equality toward genuine equity.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Paul Sherman -->
+        <div class="story-card">
+          <a href="/from-rigidity-to-realization-pauls-path-as-a-late-diagnosed-autistic-professional/">
+            <div class="card-photo-placeholder">&#9788;</div>
+            <div class="card-body">
+              <div class="card-tag">Autism</div>
+              <div class="card-title">From Rigidity to Realization: Paul&rsquo;s Path as a Late-Diagnosed Autistic Professional</div>
+              <div class="card-excerpt">Paul Sherman was 62 when his autism diagnosis finally made sense of a military career, decades as a biomedical engineer, and a lifetime of workplace misunderstandings. Knowing himself changed everything.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Roger Jones (Mark Sones) -->
+        <div class="story-card">
+          <a href="/from-burnout-to-advocacy-for-neuroinclusion-rogers-story/">
+            <img src="/stories/photos/Mark Sones.jpg" alt="Roger Jones" class="card-photo card-blur" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism &middot; ADHD</div>
+              <div class="card-title">From Burnout to Advocacy for Neuroinclusion: Roger&rsquo;s Story</div>
+              <div class="card-excerpt">After 15 years navigating tech industry workplaces without knowing he was autistic, Roger Jones received his diagnosis and immediately dedicated himself to building more inclusive organizations.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Robert Schmus -->
+        <div class="story-card">
+          <a href="/meeting-people-where-they-are-roberts-journey-as-a-neurodivergent-therapist/">
+            <img src="/stories/photos/Robert Schmus.jpeg" alt="Robert Schmus" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism &middot; ADHD</div>
+              <div class="card-title">Meeting People Where They Are: Robert&rsquo;s Journey as a Neurodivergent Therapist</div>
+              <div class="card-excerpt">Bob Schmus was told to hide his autism diagnosis at a facility serving autistic youth. One week after being fired, he had a better offer. Today, his lived experience is his greatest clinical strength.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Sydney Elaine Butler -->
+        <div class="story-card">
+          <a href="/living-through-passion-sydneys-journey-toward-authenticity-and-inclusion/">
+            <img src="/stories/photos/Sydney Elaine Butler.JPG" alt="Sydney Elaine Butler" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Autism &middot; CPTSD</div>
+              <div class="card-title">Living Through Passion: Sydney&rsquo;s Journey Toward Authenticity and Inclusion</div>
+              <div class="card-excerpt">After years of masking and advocating in an inclusion department that didn&rsquo;t extend inclusion to its own staff, Sydney Butler founded Accessible Creates, an HR consultancy rooted in lived experience.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- V Garcia -->
+        <div class="story-card">
+          <a href="/vs-path-to-leadership-courage-community-and-change/">
+            <img src="/stories/photos/V Garcia.png" alt="V Garcia" class="card-photo" loading="lazy" />
+            <div class="card-body">
+              <div class="card-tag">Neurodivergent</div>
+              <div class="card-title">V&rsquo;s Path to Leadership: Courage, Community, and Change</div>
+              <div class="card-excerpt">V Garcia experienced outright persecution after disclosing their diagnosis. Today they are a research fellow, advanced leader, and advocate researching what happens when neurodivergent leaders disclose at work.</div>
+              <div class="card-footer">By Elissia Moullas</div>
+            </div>
+          </a>
+        </div>
+
+      </div><!-- .stories-grid -->
+    </div><!-- .container -->
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">&copy; 2026 MentaImage Inc. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="mailto:privacy@mentaimage.com">privacy@mentaimage.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.getAttribute('aria-hidden') === 'false';
+      mobileMenu.setAttribute('aria-hidden', open ? 'true' : 'false');
+      hamburger.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  </script>
+</body>
+</html>

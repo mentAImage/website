@@ -1,7 +1,7 @@
 (function () {
   var path = window.location.pathname.replace(/\/index\.html$/, '/');
 
-  // Pages that have a proper FR equivalent
+  // EN pages that have a dedicated FR equivalent page
   var enToFr = {
     '/': '/fr/',
     '/about.html': '/fr/about.html',
@@ -9,25 +9,39 @@
     '/monai.html': '/fr/monai.html',
     '/pulsekey.html': '/fr/pulsekey.html',
     '/privacy.html': '/fr/privacy.html',
-    '/terms.html': '/fr/terms.html',
-    '/neurodiversity-at-work-stories/': '/fr/'
+    '/terms.html': '/fr/terms.html'
   };
+
+  // FR → EN reverse map
   var frToEn = {};
   for (var k in enToFr) { frToEn[enToFr[k]] = k; }
 
+  // All lang-switcher anchors (desktop + mobile)
   var langLinks = document.querySelectorAll('.nav__link--lang');
 
   if (path.startsWith('/fr/')) {
-    // On a FR page — point EN link to EN equivalent
+    // On a FR page: rewrite EN link to the EN equivalent
     var enPath = frToEn[path] || path.replace(/^\/fr/, '') || '/';
     langLinks.forEach(function (el) {
-      if (el.textContent.trim() === 'EN') el.setAttribute('href', enPath);
+      el.setAttribute('href', enPath);
+    });
+  } else if (enToFr[path]) {
+    // On an EN page with a real FR equivalent: go there
+    langLinks.forEach(function (el) {
+      el.setAttribute('href', enToFr[path]);
+    });
+  } else if (document.getElementById('francais')) {
+    // On a bilingual story page: scroll to the French section
+    langLinks.forEach(function (el) {
+      el.setAttribute('href', '#francais');
     });
   } else {
-    // On an EN page — point FR link to FR equivalent, or #francais for story pages
-    var frPath = enToFr[path] || '#francais';
+    // English-only page (Stories index etc.): dim the FR button, don't navigate
     langLinks.forEach(function (el) {
-      if (el.textContent.trim() === 'FR') el.setAttribute('href', frPath);
+      el.setAttribute('href', '#');
+      el.style.opacity = '0.4';
+      el.style.cursor = 'default';
+      el.style.pointerEvents = 'none';
     });
   }
 })();

@@ -355,7 +355,7 @@ fr = make_fr_body(FR_TEXTS["Kelly Crabbé"])
 stories.append(("from-burnout-to-belonging-kellys-journey-with-neurodivergence",
     "From Burnout to Belonging: Kelly&rsquo;s Journey with Neurodivergence in the Workplace",
     "Autism &middot; ADHD",
-    '<img src="/stories/photos/Kelly Crabbé.JPG" alt="Kelly C" />',
+    '<img src="/stories/photos/Kelly Crabbé.JPG" alt="Kelly C" style="object-position: center center;" />',
     en, fr))
 
 # 9 LOUISE LEROY
@@ -510,7 +510,7 @@ fr = make_fr_body(FR_TEXTS["Robert Schmus"])
 stories.append(("meeting-people-where-they-are-roberts-journey-as-a-neurodivergent-therapist",
     "Meeting People Where They Are: Robert&rsquo;s Journey as a Neurodivergent Therapist",
     "Autism &middot; ADHD",
-    '<img src="/stories/photos/Robert Schmus.jpeg" alt="Robert Schmus" />',
+    '<img src="/stories/photos/Robert Schmus.jpeg" alt="Robert Schmus" style="object-position: center center;" />',
     en, fr))
 
 # 16 SYDNEY ELAINE BUTLER

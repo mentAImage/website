@@ -384,20 +384,7 @@ section {
     min-height: unset;
   }
   .hero__image-wrap {
-    position: absolute;
-    top: 50%;
-    right: -12px;
-    left: -12px;
-    transform: translateY(-50%);
-    width: auto;
-    max-width: none;
-    opacity: 0.12;
-    z-index: 0;
-  }
-  .hero__image-wrap img {
-    width: 100%;
-    mask-image: none;
-    -webkit-mask-image: none;
+    display: none;
   }
 }
 

@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.mentaimage.app",
+    "sha256_cert_fingerprints": [
+      "35:54:BE:F1:83:5B:4F:48:1F:F2:D6:75:B2:CF:4D:67:1E:A4:7C:8A:C2:F2:A6:7D:CC:14:F7:2A:B8:8F:C9:E2"
+    ]
+  }
+}]

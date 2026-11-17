@@ -1,0 +1,18 @@
+{
+  "webcredentials": {
+    "apps": ["FHL32N73YZ.com.mentaimage.app"]
+  },
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["FHL32N73YZ.com.mentaimage.app"],
+        "components": [
+          { "/": "/verify-email", "comment": "Email verification screen in the app" },
+          { "/": "/verify-email/*" },
+          { "/": "/verified", "comment": "Post-verification screen in the app" },
+          { "/": "/verified/*" }
+        ]
+      }
+    ]
+  }
+}
